@@ -10,6 +10,10 @@ from datetime import datetime, timedelta
 sys.path.append(os.path.join(os.path.dirname(__file__), 'cost_management'))
 from cost_management.main import main as cost_management_main
 
+# Voeg paden toe aan sys.path voor dagelijkse, maandelijkse en werknemers scripts
+sys.path.append(os.path.join(os.path.dirname(__file__), 'looncomponenten'))
+from looncomponenten.actief_main import main as looncomponenten_actief_main
+
 # Configureer logging
 logging.basicConfig(level=logging.INFO)
 
@@ -18,10 +22,17 @@ app = func.FunctionApp()
 
 # Dagelijkse run (elke dag om 4 uur 's nachts)
 @app.function_name(name="StiekCostManagement")
-@app.schedule(schedule="0 40 4 * * *", arg_name="stiekTimer", run_on_startup=False, use_monitor=True)
-def StiekCostManagement(stiekTimer: func.TimerRequest) -> None:
+@app.schedule(schedule="0 40 4 * * *", arg_name="stiekCostTimer", run_on_startup=False, use_monitor=True)
+def StiekCostManagement(stiekCostTimer: func.TimerRequest) -> None:
     
     run_script(cost_management_main, "Stiek Cost Management")
+
+# Wekelijkse run
+@app.function_name(name="StiekLooncomponenten")
+@app.schedule(schedule="0 0 12 * * 1", arg_name="stiekLoonTimer", run_on_startup=False, use_monitor=True)
+def StiekLooncomponenten(stiekLoonTimer: func.TimerRequest) -> None:
+    
+    run_script(looncomponenten_actief_main, "Stiek Looncomponenten")
 
 def run_script(script_main_function, script_type):
     try:

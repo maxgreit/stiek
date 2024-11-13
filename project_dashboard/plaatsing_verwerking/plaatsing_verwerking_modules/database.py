@@ -24,6 +24,8 @@ def connect_to_database(connection_string):
     print("Kan geen verbinding maken met de database na meerdere pogingen.")
     return None
 
+
+
 def clear_table(connection_string, table, id_list):
     try:
         # Maak verbinding met de database
@@ -75,6 +77,6 @@ def write_to_database(df, tabel, connection_string, batch_size=1000):
     except Exception as e:
         print(f"Fout bij het toevoegen naar de database: {e}")
 
-
+    return rows_added
 
 
