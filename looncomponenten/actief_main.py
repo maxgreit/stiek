@@ -185,12 +185,12 @@ def main():
                     log(greit_connection_string, klant, bron, f"Looncomponenten ophalen voor {id} {werknemer} is niet actief", script, script_id)
 
     # Eindtijd logging
-        bron = 'Python'
-        eindtijd = time.time()
-        tijdsduur = timedelta(seconds=(eindtijd - start_time))
-        tijdsduur_str = str(tijdsduur).split('.')[0]
-        log(greit_connection_string, klant, bron, f"Script gestopt in {tijdsduur_str}", script, script_id)
-        print(f"Script gestopt in {tijdsduur_str}")
+    bron = 'Python'
+    eindtijd = time.time()
+    tijdsduur = timedelta(seconds=(eindtijd - start_time))
+    tijdsduur_str = str(tijdsduur).split('.')[0]
+    log(greit_connection_string, klant, bron, f"Script gestopt in {tijdsduur_str}", script, script_id)
+    print(f"Script gestopt in {tijdsduur_str}")
 
 if __name__ == "__main__":
     main()

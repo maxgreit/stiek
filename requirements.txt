@@ -9,3 +9,5 @@ python-dotenv
 Requests
 pyodbc
 sqlalchemy
+selenium
+webdriver-manager

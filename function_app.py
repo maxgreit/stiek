@@ -29,7 +29,7 @@ def StiekCostManagement(stiekCostTimer: func.TimerRequest) -> None:
 
 # Wekelijkse run
 @app.function_name(name="StiekLooncomponenten")
-@app.schedule(schedule="0 0 12 * * 1", arg_name="stiekLoonTimer", run_on_startup=False, use_monitor=True)
+@app.schedule(schedule="0 0 12 * * 1", arg_name="stiekLoonTimer", run_on_startup=True, use_monitor=True)
 def StiekLooncomponenten(stiekLoonTimer: func.TimerRequest) -> None:
     
     run_script(looncomponenten_actief_main, "Stiek Looncomponenten")
