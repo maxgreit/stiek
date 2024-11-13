@@ -12,6 +12,15 @@ from selenium.common.exceptions import TimeoutException, ElementNotInteractableE
 import time
 import os
 import datetime
+from dotenv import load_dotenv
+
+if os.path.exists("/Users/maxrood/werk/greit/klanten/stiek/cost_management/.env"):
+        load_dotenv()
+        print("Lokaal draaien: .env bestand gevonden en geladen.")
+
+# Variabelen definiëren
+username = os.getenv('EUURUSERNAME')
+password = os.getenv('EUURPASSWORD')
 
 # Stap 1: Browser driver instellen en configureren
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
@@ -29,8 +38,8 @@ try:
     # Stap 4: Vul inloggegevens in
     username = driver.find_element(By.NAME, "username")
     password = driver.find_element(By.NAME, "password")
-    username.send_keys("max@greit.nl")
-    password.send_keys("frt6kma.vdz5EKD1trf")
+    username.send_keys(username)
+    password.send_keys(password)
     print("Stap 4: Inloggegevens ingevoerd")
 
     # Stap 5: Klik op de inlogknop

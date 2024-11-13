@@ -14,7 +14,7 @@ import logging
 
 def main():
 
-    if os.path.exists("/Users/maxrood/werk/greit/klanten/stiek/cost_management/.env"):
+    if os.path.exists("/Users/maxrood/werk/greit/klanten/stiek/.env"):
         load_dotenv()
         print("Lokaal draaien: .env bestand gevonden en geladen.")
         logging.info("Lokaal draaien: .env bestand gevonden en geladen.")
