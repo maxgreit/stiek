@@ -16,7 +16,7 @@ def main():
 
     if os.path.exists("/Users/maxrood/werk/greit/klanten/stiek/.env"):
         load_dotenv()
-        print("Lokaal draaien: .env bestand gevonden en ingeladen.")
+        print("Lokaal draaien: .env bestand gevonden en geladen.")
         logging.info("Lokaal draaien: .env bestand gevonden en geladen.")
     else:
         logging.info("Draaien in productieomgeving (Azure): .env bestand niet gevonden.")
