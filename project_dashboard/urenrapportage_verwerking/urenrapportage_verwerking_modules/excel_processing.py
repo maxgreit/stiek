@@ -1,5 +1,5 @@
 import pandas as pd
-from urenrapportage_verwerking_modules.logging import logging
+from urenrapportage_verwerking.urenrapportage_verwerking_modules.log import log
 import os
 import re
 from openpyxl import load_workbook
@@ -88,19 +88,19 @@ def clean_excel(file_path):
         raise
 
 def process_excel_file(filepath, logging_connection_string, klant, bron, script, scriptid):
-    # Logging
+    # log
     print("Start excel verwerking")
-    logging(logging_connection_string, klant, bron, "Start excel verwerking", script, scriptid, tabel=None)
+    log(logging_connection_string, klant, bron, "Start excel verwerking", script, scriptid, tabel=None)
 
     # Excel bestand verwerken
     try:
         df = pd.read_excel(filepath)
         print("Excel bestand succesvol verwerkt")
-        logging(logging_connection_string, klant, bron, "Excel bestand succesvol verwerkt", script, scriptid, tabel=None)
+        log(logging_connection_string, klant, bron, "Excel bestand succesvol verwerkt", script, scriptid, tabel=None)
         return df
     except Exception as e:
         print(f"FOUTMELDING | Fout bij het verwerken van het Excel bestand: {e}")
-        logging(logging_connection_string, klant, bron, f"FOUTMELDING | Fout bij het verwerken van het Excel bestand: {e}", script, scriptid, tabel=None)
+        log(logging_connection_string, klant, bron, f"FOUTMELDING | Fout bij het verwerken van het Excel bestand: {e}", script, scriptid, tabel=None)
         return None
     
 def delete_excel_file(file_path):
