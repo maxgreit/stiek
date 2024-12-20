@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+pull_from_git.sh
+push_to_git.sh
+
 # Distribution / packaging
 .Python
 build/
