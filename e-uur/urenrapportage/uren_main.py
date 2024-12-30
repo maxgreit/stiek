@@ -1,5 +1,6 @@
 from uren_modules.excel_processing import get_df_from_excel, delete_excel_file
 from uren_modules.config import determine_script_id, create_connection_dict
+from uren_modules.selenium import urenrapportage_bestand_opslaan
 from uren_modules.database import empty_and_fill_table
 from uren_modules.type_mapping import apply_conversion
 from uren_modules.table_mapping import apply_mapping
@@ -27,6 +28,9 @@ def main():
     database = os.getenv('DATABASE')
     username = os.getenv('GEBRUIKERSNAAM')
     password = os.getenv('PASSWORD')
+    euurusername = os.getenv('EUURUSERNAME')
+    euurpassword = os.getenv('EUURPASSWORD')
+    euururl = os.getenv('EUURURL')
     driver = '{ODBC Driver 18 for SQL Server}'
     greit_connection_string = f'DRIVER={driver};SERVER={server};DATABASE={database};UID={username};PWD={password};Encrypt=no;TrustServerCertificate=no;Connection Timeout=30;'
 
@@ -39,6 +43,11 @@ def main():
     try:
         for klantnaam, (klant_connection_string, type) in connection_dict.items():
             if klantnaam == "Stiek":      
+                # Bron
+                bron = "E-Uur"
+                
+                # Urenrapportage bestand opslaan
+                urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword, greit_connection_string, klant, script, script_id, bron)
 
                 # DataFrame uit Excel maken
                 df, detail, begindatum, einddatum, file_path = get_df_from_excel(greit_connection_string, klant, script, script_id)

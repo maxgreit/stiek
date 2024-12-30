@@ -1,12 +1,11 @@
-from ontbrekend_modules.excel_processing import get_df_from_excel, delete_excel_file
-from ontbrekend_modules.config import determine_script_id, create_connection_dict
-from ontbrekend_modules.selenium import ontbrekende_uren_bestand_opslaan
-from ontbrekend_modules.column_selection import column_selection
-from ontbrekend_modules.database import empty_and_fill_table
-from ontbrekend_modules.type_mapping import apply_conversion
-from ontbrekend_modules.table_mapping import apply_mapping
-from ontbrekend_modules.env_tool import env_check
-from ontbrekend_modules.log import log, end_log
+from plaatsing_modules.excel_processing import get_df_from_excel, delete_excel_file
+from plaatsing_modules.config import determine_script_id, create_connection_dict
+from plaatsing_modules.selenium import inactieve_plaatsing_bestand_opslaan
+from plaatsing_modules.database import empty_and_fill_table
+from plaatsing_modules.type_mapping import apply_conversion
+from plaatsing_modules.table_mapping import apply_mapping
+from plaatsing_modules.env_tool import env_check
+from plaatsing_modules.log import log, end_log
 import logging
 import time
 import os
@@ -19,12 +18,12 @@ def main():
     # Script configuratie
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
     klant = "Stiek"
-    script = "E-Uur | Ontbrekende Uren | Wekelijks"
+    script = "E-Uur | Plaatsing Inactief | Wekelijks"
     bron = 'Python'
     start_time = time.time()
 
     # Omgevingsvariabelen
-    tabelnaam = "Ontbrekende_uren"
+    tabelnaam = "Plaatsing"
     server = os.getenv('SERVER')
     database = os.getenv('DATABASE')
     username = os.getenv('GEBRUIKERSNAAM')
@@ -43,12 +42,12 @@ def main():
 
     try:
         for klantnaam, (klant_connection_string, type) in connection_dict.items():
-            if klantnaam == "Stiek":      
+            if klantnaam == "Stiek":  
                 # Start logging
                 bron = 'E-Uur'
-
-                # Ontbrekende uren opslaan
-                ontbrekende_uren_bestand_opslaan(euururl, euurusername, euurpassword, greit_connection_string, klant, script, script_id, bron)
+                
+                # Plaatsing bestand opslaan
+                inactieve_plaatsing_bestand_opslaan(euururl, euurusername, euurpassword, greit_connection_string, klant, script, script_id, bron)    
 
                 # DataFrame uit Excel maken
                 df, file_path = get_df_from_excel(greit_connection_string, klant, script, script_id)
@@ -59,11 +58,8 @@ def main():
                 # Data transformatie
                 transformed_df = apply_mapping(converted_df, tabelnaam, greit_connection_string, klant, bron, script, script_id)
                 
-                # Selecteer specifieke kolommen
-                selected_df = column_selection(transformed_df)
-                
                 # Data overdracht
-                empty_and_fill_table(selected_df, tabelnaam, klant_connection_string, greit_connection_string, klant, bron, script, script_id)
+                empty_and_fill_table(transformed_df, tabelnaam, klant_connection_string, greit_connection_string, klant, bron, script, script_id)
 
                 # Excel verwijderen
                 delete_excel_file(file_path, greit_connection_string, klant, bron, script, script_id)

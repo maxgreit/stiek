@@ -8,7 +8,7 @@ import re
 from datetime import datetime
 
 def get_file_path():
-    directory = '/Users/maxrood/werk/greit/klanten/stiek/e-uur/urenrapportage/urenrapportage_file'
+    directory = '/Users/maxrood/werk/greit/klanten/stiek/e-uur/urenrapportage/uren_file'
     
     # Controleer of de directory bestaat
     if not os.path.exists(directory):
