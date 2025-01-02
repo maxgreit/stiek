@@ -31,6 +31,7 @@ def main():
     password = os.getenv('PASSWORD')
     euurusername = os.getenv('EUURUSERNAME')
     euurpassword = os.getenv('EUURPASSWORD')
+    base_dir = os.getenv("BASE_DIR")
     euururl = os.getenv('EUURURL')
     driver = '{ODBC Driver 18 for SQL Server}'
     greit_connection_string = f'DRIVER={driver};SERVER={server};DATABASE={database};UID={username};PWD={password};Encrypt=no;TrustServerCertificate=no;Connection Timeout=30;'
@@ -48,7 +49,7 @@ def main():
                 bron = 'E-Uur'
 
                 # Ontbrekende uren opslaan
-                ontbrekende_uren_bestand_opslaan(euururl, euurusername, euurpassword, greit_connection_string, klant, script, script_id, bron)
+                ontbrekende_uren_bestand_opslaan(euururl, euurusername, euurpassword, greit_connection_string, klant, script, script_id, bron, base_dir)
 
                 # DataFrame uit Excel maken
                 df, file_path = get_df_from_excel(greit_connection_string, klant, script, script_id)

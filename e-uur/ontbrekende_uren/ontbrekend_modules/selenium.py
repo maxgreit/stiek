@@ -12,7 +12,7 @@ import pandas as pd
 import time
 import os
 
-def ontbrekende_uren_bestand_opslaan(euururl, euurusername, euurpassword, greit_connection_string, klant, script, scriptid, bron):
+def ontbrekende_uren_bestand_opslaan(euururl, euurusername, euurpassword, greit_connection_string, klant, script, scriptid, bron, base_dir):
     log(greit_connection_string, klant, bron, f"Ontbrekende uren ophalen", script, scriptid)
                 
     chrome_options = Options()
@@ -21,6 +21,8 @@ def ontbrekende_uren_bestand_opslaan(euururl, euurusername, euurpassword, greit_
     chrome_options.add_argument("--no-sandbox")  # Zorgt ervoor dat je script kan draaien in een beveiligde omgeving (optioneel)
     
     # Instellen van downloadopties
+    download_dir = os.path.join(base_dir, "ontbrekende_uren/ontbrekend_file")
+    
     prefs = {
         "download.default_directory": "/Users/maxrood/werk/greit/klanten/stiek/e-uur/ontbrekende_uren/ontbrekend_file",  # Pas dit pad aan naar de gewenste map
         "download.prompt_for_download": False,  # Geen download prompt
@@ -111,7 +113,6 @@ def ontbrekende_uren_bestand_opslaan(euururl, euurusername, euurpassword, greit_
             print("Excel-knop succesvol aangeklikt!")
             
             # Wachten op het downloaden van het bestand
-            download_dir = "/Users/maxrood/werk/greit/klanten/stiek/e-uur/ontbrekende_uren/ontbrekend_file"
             filename = "Ontbrekende Urenbriefjes.xlsx"  # Pas aan
             timeout = 30
             start_time = time.time()
