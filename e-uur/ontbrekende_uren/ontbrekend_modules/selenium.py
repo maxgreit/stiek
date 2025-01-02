@@ -24,7 +24,7 @@ def ontbrekende_uren_bestand_opslaan(euururl, euurusername, euurpassword, greit_
     download_dir = os.path.join(base_dir, "e-uur/ontbrekende_uren/ontbrekend_file")
     
     prefs = {
-        "download.default_directory": "/Users/maxrood/werk/greit/klanten/stiek/e-uur/ontbrekende_uren/ontbrekend_file",  # Pas dit pad aan naar de gewenste map
+        "download.default_directory": download_dir,  # Pas dit pad aan naar de gewenste map
         "download.prompt_for_download": False,  # Geen download prompt
         "download.directory_upgrade": True,  # Upgrade de directory indien nodig
         "safebrowsing.enabled": True  # Zorg ervoor dat Safe Browsing ingeschakeld is
