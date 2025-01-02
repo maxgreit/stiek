@@ -21,7 +21,7 @@ def ontbrekende_uren_bestand_opslaan(euururl, euurusername, euurpassword, greit_
     chrome_options.add_argument("--no-sandbox")  # Zorgt ervoor dat je script kan draaien in een beveiligde omgeving (optioneel)
     
     # Instellen van downloadopties
-    download_dir = os.path.join(base_dir, "ontbrekende_uren/ontbrekend_file")
+    download_dir = os.path.join(base_dir, "e-uur/ontbrekende_uren/ontbrekend_file")
     
     prefs = {
         "download.default_directory": "/Users/maxrood/werk/greit/klanten/stiek/e-uur/ontbrekende_uren/ontbrekend_file",  # Pas dit pad aan naar de gewenste map
