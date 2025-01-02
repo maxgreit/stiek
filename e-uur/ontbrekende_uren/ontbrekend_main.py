@@ -38,10 +38,10 @@ def main():
 
     # Script ID bepalen
     script_id = determine_script_id(greit_connection_string, klant, bron, script)
-
+    print("ScriptID: ", script_id)
     # Connectie dictionary maken
     connection_dict = create_connection_dict(greit_connection_string, klant, bron, script, script_id)
-
+    print("Connectie dictionary: ", connection_dict)
     try:
         for klantnaam, (klant_connection_string, type) in connection_dict.items():
             if klantnaam == "Stiek":      
