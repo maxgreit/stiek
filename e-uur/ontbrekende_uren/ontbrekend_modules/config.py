@@ -29,9 +29,7 @@ def determine_script_id(greit_connection_string, klant, bron, script):
         script_id = latest_script_id + 1
     else:
         script_id = 1
-        
-    logging.info(f"ScriptID: {script_id}")
-    print("Script gestart")
+
     try:
         log(greit_connection_string, klant, bron, f"Script gestart", script, script_id)
     except Exception as e:

@@ -35,7 +35,7 @@ def main():
     euururl = os.getenv('EUURURL')
     driver = '{ODBC Driver 18 for SQL Server}'
     greit_connection_string = f'DRIVER={driver};SERVER={server};DATABASE={database};UID={username};PWD={password};Encrypt=no;TrustServerCertificate=no;Connection Timeout=30;'
-    print(greit_connection_string)
+
     # Script ID bepalen
     script_id = determine_script_id(greit_connection_string, klant, bron, script)
 
@@ -52,7 +52,7 @@ def main():
                 ontbrekende_uren_bestand_opslaan(euururl, euurusername, euurpassword, greit_connection_string, klant, script, script_id, bron, base_dir)
 
                 # DataFrame uit Excel maken
-                df, file_path = get_df_from_excel(greit_connection_string, klant, script, script_id)
+                df, file_path = get_df_from_excel(greit_connection_string, klant, script, script_id, base_dir)
 
                 # Kolommen type conversie
                 converted_df = apply_conversion(df, tabelnaam, greit_connection_string, klant, bron, script, script_id)
