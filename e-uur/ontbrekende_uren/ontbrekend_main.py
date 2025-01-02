@@ -35,7 +35,7 @@ def main():
     euururl = os.getenv('EUURURL')
     driver = '{ODBC Driver 18 for SQL Server}'
     greit_connection_string = f'DRIVER={driver};SERVER={server};DATABASE={database};UID={username};PWD={password};Encrypt=no;TrustServerCertificate=no;Connection Timeout=30;'
-
+    print(greit_connection_string)
     # Script ID bepalen
     script_id = determine_script_id(greit_connection_string, klant, bron, script)
 
