@@ -36,6 +36,7 @@ def urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword, greit_co
 
     # Stap 1: WebDriver configureren met deze opties
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+    driver.set_window_size(1920, 1080)  # Pas aan naar de gewenste grootte
 
     try:
         # Stap 2: Open de gewenste URL
