@@ -19,6 +19,7 @@ def looncomponenten_ophalen(euururl, euurusername, euurpassword, target_object_i
     
     # Stap 1: Browser driver instellen en configureren
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+    driver.set_window_size(1920, 1080)  # Pas aan naar de gewenste grootte
 
     def go_to_next_page():
         """Functie om naar de volgende pagina te navigeren door de 'Volgende' knop te klikken."""
