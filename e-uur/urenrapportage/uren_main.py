@@ -30,6 +30,7 @@ def main():
     password = os.getenv('PASSWORD')
     euurusername = os.getenv('EUURUSERNAME')
     euurpassword = os.getenv('EUURPASSWORD')
+    base_dir = os.getenv("BASE_DIR")
     euururl = os.getenv('EUURURL')
     driver = '{ODBC Driver 18 for SQL Server}'
     greit_connection_string = f'DRIVER={driver};SERVER={server};DATABASE={database};UID={username};PWD={password};Encrypt=no;TrustServerCertificate=no;Connection Timeout=30;'
@@ -47,10 +48,10 @@ def main():
                 bron = "E-Uur"
                 
                 # Urenrapportage bestand opslaan
-                urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword, greit_connection_string, klant, script, script_id, bron)
+                urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword, greit_connection_string, klant, script, script_id, bron, base_dir)
 
                 # DataFrame uit Excel maken
-                df, detail, begindatum, einddatum, file_path = get_df_from_excel(greit_connection_string, klant, script, script_id)
+                df, detail, begindatum, einddatum, file_path = get_df_from_excel(greit_connection_string, klant, script, script_id, base_dir)
 
                 # Kolommen type conversie
                 converted_df = apply_conversion(df, tabelnaam, greit_connection_string, klant, bron, script, script_id)

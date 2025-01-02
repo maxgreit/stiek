@@ -14,7 +14,7 @@ import pandas as pd
 import time
 import os
 
-def urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword, greit_connection_string, klant, script, scriptid, bron):
+def urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword, greit_connection_string, klant, script, scriptid, bron, base_dir):
     log(greit_connection_string, klant, bron, f"Urenrapportage ophalen", script, scriptid)
                 
     chrome_options = Options()
@@ -23,8 +23,11 @@ def urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword, greit_co
     chrome_options.add_argument("--no-sandbox")  # Zorgt ervoor dat je script kan draaien in een beveiligde omgeving (optioneel)
     
     # Instellen van downloadopties
+    download_dir = os.path.join(base_dir, "e-uur/urenrapportage/uren_file")
+    
+    # Instellen van downloadopties
     prefs = {
-        "download.default_directory": "/Users/maxrood/werk/greit/klanten/stiek/e-uur/urenrapportage/uren_file",  # Pas dit pad aan naar de gewenste map
+        "download.default_directory": download_dir,  # Pas dit pad aan naar de gewenste map
         "download.prompt_for_download": False,  # Geen download prompt
         "download.directory_upgrade": True,  # Upgrade de directory indien nodig
         "safebrowsing.enabled": True  # Zorg ervoor dat Safe Browsing ingeschakeld is
@@ -167,7 +170,6 @@ def urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword, greit_co
             print("Excel-knop succesvol aangeklikt!")
             
             # Wachten op het downloaden van het bestand
-            download_dir = "/Users/maxrood/werk/greit/klanten/stiek/e-uur/urenrapportage/uren_file"
             default_filename = "Urenrapportage.xlsx"  # Pas aan
             new_filename = f"Urenrapportage_{start_datum.strftime('%Y-%m-%d')}_{eind_datum.strftime('%Y-%m-%d')}.xlsx"
             timeout = 30

@@ -7,8 +7,8 @@ import os
 import re
 from datetime import datetime
 
-def get_file_path():
-    directory = '/Users/maxrood/werk/greit/klanten/stiek/e-uur/urenrapportage/uren_file'
+def get_file_path(base_dir):
+    directory = os.path.join(base_dir, "e-uur/urenrapportage/uren_file")
     
     # Controleer of de directory bestaat
     if not os.path.exists(directory):
@@ -114,11 +114,12 @@ def delete_excel_file(file_path, logging_connection_string, klant, bron, script,
     except Exception as e:
         print(f"FOUTMELDING | Fout bij het verwijderen van het bestand: {e}")
         
-def get_df_from_excel(greit_connection_string, klant, script, script_id):
+def get_df_from_excel(greit_connection_string, klant, script, script_id, base_dir):
     # Excel bestand ophalen
     bron = 'E-Uur'
+    
     try:
-        filepath, detail, begindatum, einddatum = get_file_path()
+        filepath, detail, begindatum, einddatum = get_file_path(base_dir)
     except Exception as e:
         print(f"FOUTMELDING | Excel bestand ophalen mislukt: {e}")
         log(greit_connection_string, klant, bron, f"FOUTMELDING | Excel bestand ophalen mislukt: {e}", script, script_id)
