@@ -12,7 +12,7 @@ import pandas as pd
 import time
 import os
 
-def actieve_plaatsing_bestand_opslaan(euururl, euurusername, euurpassword, greit_connection_string, klant, script, scriptid, bron):
+def actieve_plaatsing_bestand_opslaan(euururl, euurusername, euurpassword, greit_connection_string, klant, script, scriptid, bron, base_dir):
     log(greit_connection_string, klant, bron, f"Plaatsingen ophalen", script, scriptid)
                 
     chrome_options = Options()
@@ -21,8 +21,11 @@ def actieve_plaatsing_bestand_opslaan(euururl, euurusername, euurpassword, greit
     chrome_options.add_argument("--no-sandbox")  # Zorgt ervoor dat je script kan draaien in een beveiligde omgeving (optioneel)
     
     # Instellen van downloadopties
+    download_dir = os.path.join(base_dir, "e-uur/plaatsing/plaatsing_file")
+    
+    # Instellen van downloadopties
     prefs = {
-        "download.default_directory": "/Users/maxrood/werk/greit/klanten/stiek/e-uur/plaatsing/plaatsing_file",  # Pas dit pad aan naar de gewenste map
+        "download.default_directory": download_dir,  # Pas dit pad aan naar de gewenste map
         "download.prompt_for_download": False,  # Geen download prompt
         "download.directory_upgrade": True,  # Upgrade de directory indien nodig
         "safebrowsing.enabled": True  # Zorg ervoor dat Safe Browsing ingeschakeld is
@@ -31,6 +34,7 @@ def actieve_plaatsing_bestand_opslaan(euururl, euurusername, euurpassword, greit
 
     # Stap 1: WebDriver configureren met deze opties
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+    driver.set_window_size(1920, 1080)  # Pas aan naar de gewenste grootte
 
     try:
         # Stap 2: Open de gewenste URL
@@ -111,7 +115,6 @@ def actieve_plaatsing_bestand_opslaan(euururl, euurusername, euurpassword, greit
             print("Excel-knop succesvol aangeklikt!")
             
             # Wachten op het downloaden van het bestand
-            download_dir = "/Users/maxrood/werk/greit/klanten/stiek/e-uur/plaatsing/plaatsing_file"
             filename = "Plaatsing.xlsx"  # Pas aan
             timeout = 30
             start_time = time.time()
@@ -136,7 +139,7 @@ def actieve_plaatsing_bestand_opslaan(euururl, euurusername, euurpassword, greit
         except Exception as e:
             log(greit_connection_string, klant, bron, f"Fout bij het sluiten van de browser: {str(e)}", script, scriptid)
             
-def inactieve_plaatsing_bestand_opslaan(euururl, euurusername, euurpassword, greit_connection_string, klant, script, scriptid, bron):
+def inactieve_plaatsing_bestand_opslaan(euururl, euurusername, euurpassword, greit_connection_string, klant, script, scriptid, bron, base_dir):
     log(greit_connection_string, klant, bron, f"Plaatsingen ophalen", script, scriptid)
                 
     chrome_options = Options()
@@ -145,8 +148,11 @@ def inactieve_plaatsing_bestand_opslaan(euururl, euurusername, euurpassword, gre
     chrome_options.add_argument("--no-sandbox")  # Zorgt ervoor dat je script kan draaien in een beveiligde omgeving (optioneel)
     
     # Instellen van downloadopties
+    download_dir = os.path.join(base_dir, "e-uur/plaatsing/plaatsing_file")
+    
+    # Instellen van downloadopties
     prefs = {
-        "download.default_directory": "/Users/maxrood/werk/greit/klanten/stiek/e-uur/plaatsing/plaatsing_file",  # Pas dit pad aan naar de gewenste map
+        "download.default_directory": download_dir,  # Pas dit pad aan naar de gewenste map
         "download.prompt_for_download": False,  # Geen download prompt
         "download.directory_upgrade": True,  # Upgrade de directory indien nodig
         "safebrowsing.enabled": True  # Zorg ervoor dat Safe Browsing ingeschakeld is
@@ -155,6 +161,7 @@ def inactieve_plaatsing_bestand_opslaan(euururl, euurusername, euurpassword, gre
 
     # Stap 1: WebDriver configureren met deze opties
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+    driver.set_window_size(1920, 1080)  # Pas aan naar de gewenste grootte
 
     try:
         # Stap 2: Open de gewenste URL
@@ -235,7 +242,6 @@ def inactieve_plaatsing_bestand_opslaan(euururl, euurusername, euurpassword, gre
             print("Excel-knop succesvol aangeklikt!")
             
             # Wachten op het downloaden van het bestand
-            download_dir = "/Users/maxrood/werk/greit/klanten/stiek/e-uur/plaatsing/plaatsing_file"
             filename = "Plaatsing.xlsx"  # Pas aan
             timeout = 30
             start_time = time.time()

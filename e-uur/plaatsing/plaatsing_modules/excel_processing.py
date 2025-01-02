@@ -114,10 +114,10 @@ def delete_excel_file(file_path, logging_connection_string, klant, bron, script,
     except Exception as e:
         print(f"FOUTMELDING | Fout bij het verwijderen van het bestand: {e}")
         
-def get_df_from_excel(greit_connection_string, klant, script, script_id):
+def get_df_from_excel(greit_connection_string, klant, script, script_id, base_dir):
     # Excel bestand ophalen
     bron = 'E-Uur'
-    filepath = '/Users/maxrood/werk/greit/klanten/stiek/e-uur/plaatsing/plaatsing_file/Plaatsing.xlsx'
+    filepath = os.path.join(base_dir, "e-uur/plaatsing/plaatsing_file/Plaatsing.xlsx")
 
     # Excel bestand opschonen
     try:
