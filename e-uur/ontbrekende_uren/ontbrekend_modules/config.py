@@ -31,7 +31,11 @@ def determine_script_id(greit_connection_string, klant, bron, script):
         script_id = 1
         
     logging.info(f"ScriptID: {script_id}")
-    log(greit_connection_string, klant, bron, f"Script gestart", script, script_id)
+    print("Script gestart")
+    try:
+        log(greit_connection_string, klant, bron, f"Script gestart", script, script_id)
+    except Exception as e:
+        print(f"FOUTMELDING | Logging mislukt: {e}")
     
     return script_id
 
