@@ -2,7 +2,14 @@ from dotenv import load_dotenv
 import logging
 import os
 
-def env_check(base_dir):
+def determine_base_dir():
+    if "maxrood" in os.path.expanduser("~"):  # Specifiek voor je MacBook
+            return "/Users/maxrood/werk/greit/klanten/stiek/"
+    else:  # Voor je VM
+        return "/home/greit/klanten/stiek/"
+
+def env_check():
+    base_dir = determine_base_dir()
     env_path = os.path.join(base_dir, '.env')
     
     if os.path.exists(env_path):
