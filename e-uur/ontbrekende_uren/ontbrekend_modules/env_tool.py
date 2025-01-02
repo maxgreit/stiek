@@ -9,3 +9,4 @@ def env_check():
             logging.info("Lokaal draaien: .env bestand gevonden en geladen.")
     else:
         logging.info("Draaien in productieomgeving (Azure): .env bestand niet gevonden.")
+        print("Draaien in productieomgeving (Azure): .env bestand niet gevonden.")
