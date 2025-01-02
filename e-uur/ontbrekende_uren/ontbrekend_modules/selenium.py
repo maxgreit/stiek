@@ -22,7 +22,7 @@ def ontbrekende_uren_bestand_opslaan(euururl, euurusername, euurpassword, greit_
     
     # Instellen van downloadopties
     download_dir = os.path.join(base_dir, "e-uur/ontbrekende_uren/ontbrekend_file")
-    
+    print(download_dir)
     prefs = {
         "download.default_directory": download_dir,  # Pas dit pad aan naar de gewenste map
         "download.prompt_for_download": False,  # Geen download prompt
