@@ -4,6 +4,7 @@ from feedback_modules.google_sheet import get_google_sheet_data
 from feedback_modules.type_mapping import apply_conversion
 from feedback_modules.mapping import map_columns
 from feedback_modules.env_tool import env_check
+from feedback_modules.log import log, end_log
 import pandas as pd
 import logging
 import time
@@ -15,7 +16,6 @@ def main():
     env_check()
 
     # Script configuratie
-    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
     klant = "Stiek"
     script = "Google Sheet | Feedback | Dagelijks"
     bron = 'Python'
@@ -50,21 +50,21 @@ def main():
                 else:
                     print(df.head())
                 
+                # Mapping toepassen
                 mapped_df = map_columns(df)
                 
                 # Kolommen type conversie
                 converted_df = apply_conversion(mapped_df, tabelnaam, greit_connection_string, klant, bron, script, script_id)
                 
+                # Data leeghalen en toeschrijven
                 clear_table(klant_connection_string, tabelnaam)
-                
                 write_to_database(converted_df, tabelnaam, klant_connection_string, batch_size=1000)
-                
                 print("Data is succesvol opgeslagen in de database.")
                 
     except Exception as e:
-        logging.error(f"Er is een fout opgetreden: {e}")
-        raise
-
+        log(greit_connection_string, klant, bron, f"FOUTMELDING | Script mislukt: {e}", script, script_id, tabelnaam)
+    
+    end_log(start_time, greit_connection_string, klant, bron, script, script_id)
 
 if __name__ == "__main__":
     main()
