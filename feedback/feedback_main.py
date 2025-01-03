@@ -38,11 +38,11 @@ def main():
 
     # Connectie dictionary maken
     connection_dict = create_connection_dict(greit_connection_string, klant, bron, script, script_id)
-    print(connection_dict)
+
     try:
         for klantnaam, (klant_connection_string, type) in connection_dict.items():
             if klantnaam == "Stiek": 
-                print("bestaat")
+
                 df = get_google_sheet_data(sheet_url, sheet_name, credentials_file_path)
 
                 if df.empty:
