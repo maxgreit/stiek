@@ -16,7 +16,6 @@ def main():
     env_check()
 
     # Script configuratie
-    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
     klant = "Stiek"
     script = "E-Uur | Plaatsing Actief | Wekelijks"
     bron = 'Python'

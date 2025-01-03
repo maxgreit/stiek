@@ -1,15 +1,8 @@
+from dotenv import load_dotenv
 import requests
-from dotenv import load_dotenv, set_key
 import os
 
-def get_access_token():
-
-    load_dotenv()
-
-    # Vul deze variabelen in met je eigen gegevens
-    tenant_id = os.getenv('TENANT_ID')
-    client_id = os.getenv('CLIENT_ID')
-    client_secret = os.getenv('CLIENT_SECRET')
+def get_access_token(tenant_id, client_id, client_secret):
 
     # URL om het token op te halen
     token_url = f'https://login.microsoftonline.com/{tenant_id}/oauth2/v2.0/token'

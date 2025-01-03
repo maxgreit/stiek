@@ -1,9 +1,9 @@
+from datetime import datetime, timedelta
+from sqlalchemy import create_engine
+from cost_modules.log import log
+import urllib
 import pyodbc
 import time
-from datetime import datetime, timedelta
-import sqlalchemy
-from sqlalchemy import create_engine, event, text
-import urllib
 
 def connect_to_database(connection_string):
     # Retries en delays
@@ -79,5 +79,25 @@ def write_to_database(df, tabel, connection_string, batch_size=1000):
 
     return rows_added
 
-
-
+def apply_clearing_and_writing(greit_connection_string, df, tabel, klant, bron, script, script_id):
+    # Tabel leeg maken
+    try:
+        clear_table(greit_connection_string, tabel, klant)
+        print(f"Tabel {tabel} leeg gemaakt vanaf begin van deze maand")
+        log(greit_connection_string, klant, bron, f"Tabel {tabel} leeg gemaakt vanaf begin van deze maand", script, script_id, tabel)
+    except Exception as e:
+        print(f"FOUTMELDING | Tabel leeg maken mislukt: {e}")
+        log(greit_connection_string, klant, bron, f"FOUTMELDING | Tabel leeg maken mislukt: {e}", script, script_id, tabel)
+        return None
+    
+    # Tabel vullen
+    try:
+        print(f"Volledige lengte {tabel}: ", len(df))
+        log(greit_connection_string, klant, bron, f"Volledige lengte {tabel}: {len(df)}", script, script_id,  tabel)
+        added_rows_count = write_to_database(df, tabel, greit_connection_string)
+        print(f"Tabel {tabel} gevuld")
+        log(greit_connection_string, klant, bron, f"Tabel gevuld met {added_rows_count} rijen", script, script_id,  tabel)
+    except Exception as e:
+        print(f"FOUTMELDING | Tabel vullen mislukt: {e}")
+        log(greit_connection_string, klant, bron, f"FOUTMELDING | Tabel vullen mislukt: {e}", script, script_id,  tabel)
+        return None
