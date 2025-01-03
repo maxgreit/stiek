@@ -55,7 +55,7 @@ def main():
                 
                 # Kolommen type conversie
                 converted_df = apply_conversion(mapped_df, tabelnaam, greit_connection_string, klant, bron, script, script_id)
-                
+                print(klant_connection_string)
                 # Data leeghalen en toeschrijven
                 clear_table(klant_connection_string, tabelnaam)
                 write_to_database(converted_df, tabelnaam, klant_connection_string, batch_size=1000)
