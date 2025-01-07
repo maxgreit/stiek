@@ -1,7 +1,5 @@
-from sqlalchemy import create_engine, event, text
 from plaatsing_modules.log import log
-from datetime import datetime
-import sqlalchemy
+from sqlalchemy import create_engine
 import urllib
 import pyodbc
 import time
