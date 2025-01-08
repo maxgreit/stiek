@@ -37,6 +37,13 @@ cost_management_taak = BashOperator(
         dag=dag,
 )
 
+feedback_taak = BashOperator(
+        task_id='feedback',
+        bash_command=venv_command("/home/greit/klanten/stiek/feedback/feedback_main.py"),
+        dag=dag,
+)
+
+
 start_parallel_tasks = EmptyOperator(
         task_id='start_parallel_tasks',
         dag=dag,
