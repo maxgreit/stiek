@@ -9,6 +9,7 @@ def get_google_sheet_data(sheet_url, sheet_name, credentials_file_path):
     scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/spreadsheets",
              "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive"]
     print("B")
+    print(credentials_file_path)
     # Maak de credentials aan
     try:
         creds = ServiceAccountCredentials.from_json_keyfile_name(credentials_file_path, scope)
