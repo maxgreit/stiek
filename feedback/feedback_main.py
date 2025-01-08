@@ -42,25 +42,25 @@ def main():
     try:
         for klantnaam, (klant_connection_string, type) in connection_dict.items():
             if klantnaam == "Stiek": 
-
+                print("A")
                 df = get_google_sheet_data(sheet_url, sheet_name, credentials_file_path)
-
+                print("B")
                 if df.empty:
                     print("Geen data beschikbaar in de Google Sheet.")
                 else:
                     print(df.head())
-                
+                print("C")
                 # Mapping toepassen
                 mapped_df = map_columns(df)
-                
+                print("D")
                 # Kolommen type conversie
                 converted_df = apply_conversion(mapped_df, tabelnaam, greit_connection_string, klant, bron, script, script_id)
-
+                print("E")
                 # Data leeghalen en toeschrijven
                 clear_table(klant_connection_string, tabelnaam)
                 write_to_database(converted_df, tabelnaam, klant_connection_string, batch_size=1000)
                 print("Data is succesvol opgeslagen in de database.")
-                
+                print("F")
     except Exception as e:
         log(greit_connection_string, klant, bron, f"FOUTMELDING | Script mislukt: {e}", script, script_id, tabelnaam)
     
