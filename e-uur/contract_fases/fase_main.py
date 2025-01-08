@@ -18,8 +18,8 @@ def main():
     # Script configuratie
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
     klant = "Stiek"
-    script = "E-Uur | Contract Fases | Dagelijks"
-    bron = 'Python'
+    script = "Contract Fases"
+    bron = 'E-Uur'
     start_time = time.time()
 
     # Omgevingsvariabelen

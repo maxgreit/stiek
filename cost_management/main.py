@@ -15,8 +15,8 @@ def main():
 
     # Script configuratie
     klant = "Stiek"
-    script = "Azure | Cost Management"
-    bron = 'Python'
+    script = "Cost Management"
+    bron = 'Azure'
     start_time = time.time()
 
     # Verbindingsinstellingen
