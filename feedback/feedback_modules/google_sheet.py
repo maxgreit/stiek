@@ -13,8 +13,9 @@ def get_google_sheet_data(sheet_url, sheet_name, credentials_file_path):
     # Maak de credentials aan
     try:
         creds = ServiceAccountCredentials.from_json_keyfile_name(credentials_file_path, scope)
-    except FileNotFoundError:
-        print(f"De credentials bestand '{credentials_file_path}' bestaat niet.")
+    except Exception as e:
+        print(f"Fout bij het maken van de credentials: {e}")
+
     print("C")
     try:
         client = gspread.authorize(creds)
