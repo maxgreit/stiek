@@ -1,25 +1,22 @@
-from datetime import datetime, timedelta
 from cost_modules.log import log
 import pandas as pd
 import requests
 
-def generate_cost_dataframe(subscription_id, klant, bron, script, script_id, greit_connection_string, bearer_token):
+def generate_cost_dataframe(subscription_id, klant, bron, script, script_id, greit_connection_string, bearer_token, start_datum, eind_datum):
+    
+    # Printen van begin en eind datum
+    print(f"Ophalen cost dataframe vanaf {start_datum} tot {eind_datum}")
     
     # API URL voor het opvragen van kosten
     cost_url = f'https://management.azure.com/subscriptions/{subscription_id}/providers/Microsoft.CostManagement/query?api-version=2023-03-01'
-
-    # Bereken de startdatum als de eerste dag van de vorige maand
-    start_date = (datetime.now().replace(day=1) - timedelta(days=1)).replace(day=1).strftime("%Y-%m-%d")
-    # Bereken de einddatum als de huidige datum
-    end_date = datetime.now().strftime("%Y-%m-%d")
 
     # JSON-body voor het opvragen van de kosten voor de huidige maand per dag
     cost_body = {
         "type": "ActualCost",
         "timeframe": "Custom",
         "timePeriod": {
-            "from": start_date,
-            "to": end_date
+            "from": start_datum,
+            "to": eind_datum
         },
         "dataset": {
             "granularity": "Daily",

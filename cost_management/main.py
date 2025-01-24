@@ -4,7 +4,9 @@ from cost_modules.table_mapping import apply_transformation
 from cost_modules.cost_api import generate_cost_dataframe
 from cost_modules.access_token import get_access_token
 from cost_modules.config import determine_script_id
+from dateutil.relativedelta import relativedelta
 from cost_modules.env_tool import env_check
+from datetime import datetime, timedelta
 from cost_modules.log import log, end_log
 import time
 import os
@@ -39,8 +41,15 @@ def main():
         # Access token genereren
         bearer_token = get_access_token(tenant_id, client_id, client_secret)
 
+        # Start datum en eind datum bepalen
+        vandaag = datetime.today()
+        start_datum = (vandaag - relativedelta(months=1)).replace(day=1)  # Begin vorige maand
+        eind_datum = (vandaag + relativedelta(months=1)).replace(day=1) - timedelta(days=1)  # Eind deze maand
+        start_datum = start_datum.strftime('%Y-%m-%d')
+        eind_datum = eind_datum.strftime('%Y-%m-%d')
+
         # Creëer cost dataframe
-        df = generate_cost_dataframe(subscription_id, klant, bron, script, script_id, greit_connection_string, bearer_token)
+        df = generate_cost_dataframe(subscription_id, klant, bron, script, script_id, greit_connection_string, bearer_token, start_datum, eind_datum)
 
         # Transformeer kolommen
         df = apply_transformation(df, greit_connection_string, klant, bron, script, script_id)
@@ -49,7 +58,7 @@ def main():
         df = apply_type_conversion(greit_connection_string, klant, bron, script, script_id, df)
         
         # Leeghalen en toeschrijven van data
-        apply_clearing_and_writing(greit_connection_string, df, tabel, klant, bron, script, script_id)
+        apply_clearing_and_writing(greit_connection_string, df, tabel, klant, bron, script, script_id, start_datum, eind_datum)
 
     except Exception as e:
         print(f"FOUTMELDING | {e}")

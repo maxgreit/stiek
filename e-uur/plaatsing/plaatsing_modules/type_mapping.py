@@ -12,6 +12,8 @@ plaatsing_typing =   {
     "Inlener": "nvarchar",
     "Contracttype": "nvarchar",
     "Sector": "nvarchar",
+    "Bemiddelaar": "nvarchar",
+    "Gemiddelde werkweek": "decimal",
 }
 
 def convert_column_types(df, column_types):

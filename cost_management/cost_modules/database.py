@@ -24,13 +24,8 @@ def connect_to_database(connection_string):
     print("Kan geen verbinding maken met de database na meerdere pogingen.")
     return None
 
-def clear_table(connection_string, table, klant):
-    try:
-        # Bereken de startdatum als de eerste dag van de vorige maand
-        begindatum = (datetime.now().replace(day=1) - timedelta(days=1)).replace(day=1).strftime("%Y-%m-%d")
-        # Bereken de einddatum als de huidige datum
-        einddatum = datetime.now().strftime("%Y-%m-%d")
-        
+def clear_table(connection_string, table, klant, start_datum, eind_datum):
+    try:        
         # Maak verbinding met de database
         connection = pyodbc.connect(connection_string)
         cursor = connection.cursor()
@@ -41,10 +36,10 @@ def clear_table(connection_string, table, klant):
                 DELETE FROM {table}
                 WHERE Datum >= ? AND Datum <= ?
                 AND Klant = ?
-            """, (begindatum, einddatum, klant))
+            """, (start_datum, eind_datum, klant))
             rows_deleted = cursor.rowcount  # Houd het aantal verwijderde rijen bij
         except pyodbc.Error as e:
-            print(f"DELETE FROM {table} voor de opgegeven periode (van {begindatum} tot {einddatum}) is mislukt: {e}")
+            print(f"DELETE FROM {table} voor de opgegeven periode (van {start_datum} tot {eind_datum}) is mislukt: {e}")
             rows_deleted = 0
         
         # Commit de transactie
@@ -79,10 +74,10 @@ def write_to_database(df, tabel, connection_string, batch_size=1000):
 
     return rows_added
 
-def apply_clearing_and_writing(greit_connection_string, df, tabel, klant, bron, script, script_id):
+def apply_clearing_and_writing(greit_connection_string, df, tabel, klant, bron, script, script_id, start_datum, eind_datum):
     # Tabel leeg maken
     try:
-        clear_table(greit_connection_string, tabel, klant)
+        clear_table(greit_connection_string, tabel, klant, start_datum, eind_datum)
         print(f"Tabel {tabel} leeg gemaakt vanaf begin van deze maand")
         log(greit_connection_string, klant, bron, f"Tabel {tabel} leeg gemaakt vanaf begin van deze maand", script, script_id, tabel)
     except Exception as e:

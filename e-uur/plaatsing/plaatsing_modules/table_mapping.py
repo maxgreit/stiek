@@ -3,7 +3,8 @@ from plaatsing_modules.log import log
 plaatsing =   {
     "Datum aangemaakt": "Datum_aangemaakt",
     "werknemer": "Werknemer",
-    "Id": "ID"
+    "Id": "ID",
+    "Gemiddelde werkweek": "Gemiddelde_werkweek"
 }
 
 def transform_columns(df, column_mapping):
