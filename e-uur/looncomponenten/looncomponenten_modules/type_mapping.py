@@ -1,7 +1,5 @@
 import pandas as pd
-from decimal import Decimal
-import numpy as np
-from looncomponenten_modules.log import log
+import logging
 
 looncomponent_typing =   {
     "ID": "bigint",
@@ -52,7 +50,7 @@ def convert_column_types(df, column_types):
     
     return df
 
-def apply_conversion(df, greit_connection_string, klant, bron, script, script_id):
+def apply_conversion(df):
     
     # Kolom typing
     column_typing = {
@@ -64,10 +62,8 @@ def apply_conversion(df, greit_connection_string, klant, bron, script, script_id
         # Type conversie
         try:
             df = convert_column_types(df, typing)
-            print(f"Kolommen type conversie")
-            log(greit_connection_string, klant, bron, f"Kolommen type conversie correct uitgevoerd", script, script_id, tabel)
+            logging.info(f"Kolommen type conversie")
             return df
         except Exception as e:
-            print(f"FOUTMELDING | Kolommen type conversie mislukt: {e}")
-            log(greit_connection_string, klant, bron, f"FOUTMELDING | Kolommen type conversie mislukt: {e}", script, script_id, tabel)
+            logging.error(f"Kolommen type conversie mislukt: {e}")
             return None

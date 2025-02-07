@@ -1,0 +1,133 @@
+2025-02-07 12:14:45 - INFO - Logboek is geconfigureerd.
+2025-02-07 12:14:45 - INFO - Ophalen cost dataframe vanaf 2025-01-01 tot 2025-02-28
+2025-02-07 12:14:45 - INFO - Maak een POST-verzoek om de kosten op te vragen
+2025-02-07 12:14:50 - INFO - Kosteninformatie ontvangen
+2025-02-07 12:14:50 - INFO - Kolommen getransformeerd
+2025-02-07 12:14:50 - INFO - Kolommen type conversie
+2025-02-07 12:14:50 - INFO - Leeggooien succesvol uitgevoerd voor tabel Kosten. Aantal verwijderde rijen: 38.
+2025-02-07 12:14:50 - INFO - Tabel Kosten leeg gemaakt vanaf begin van deze maand
+2025-02-07 12:14:51 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Kosten
+2025-02-07 12:14:52 - INFO - Tabel Kosten gevuld
+2025-02-07 12:14:52 - INFO - Script ended in 0:00:07
+2025-02-07 13:17:31 - INFO - Logboek is geconfigureerd.
+2025-02-07 13:17:32 - INFO - Ophalen cost dataframe vanaf 2025-01-01 tot 2025-02-28
+2025-02-07 13:17:32 - INFO - Maak een POST-verzoek om de kosten op te vragen
+2025-02-07 13:17:35 - INFO - Kosteninformatie ontvangen
+2025-02-07 13:17:35 - INFO - Kolommen getransformeerd
+2025-02-07 13:17:35 - INFO - Kolommen type conversie
+2025-02-07 13:17:35 - INFO - Leeggooien succesvol uitgevoerd voor tabel Kosten. Aantal verwijderde rijen: 38.
+2025-02-07 13:17:35 - INFO - Tabel Kosten leeg gemaakt vanaf begin van deze maand
+2025-02-07 13:17:36 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Kosten
+2025-02-07 13:17:36 - INFO - Tabel Kosten gevuld
+2025-02-07 13:17:36 - INFO - Script ended in 0:00:04
+2025-02-07 13:29:21 - INFO - Logboek is geconfigureerd.
+2025-02-07 13:29:21 - INFO - Verbinding met database opnieuw geslaagd
+2025-02-07 13:29:22 - INFO - Ophalen connectiestrings gelukt
+2025-02-07 13:29:22 - INFO - Configuratie dictionary opgehaald
+2025-02-07 13:29:22 - INFO - Verbinding met database opnieuw geslaagd
+2025-02-07 13:29:22 - INFO - Ophalen contract dictionary gelukt
+2025-02-07 13:29:22 - INFO - Kolommen type conversie
+2025-02-07 13:29:23 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Contract_fases
+2025-02-07 13:29:23 - INFO - Tabel Contract_fases gevuld
+2025-02-07 13:29:23 - INFO - Script ended in 0:00:02
+2025-02-07 13:50:28 - INFO - Logboek is geconfigureerd.
+2025-02-07 13:50:28 - INFO - Verbinding met database opnieuw geslaagd
+2025-02-07 13:50:29 - INFO - Ophalen connectiestrings gelukt
+2025-02-07 13:50:29 - INFO - Configuratie dictionary opgehaald
+2025-02-07 13:50:29 - INFO - Data omzetten naar DataFrame gestart
+2025-02-07 13:50:29 - INFO - Data omzetten naar DataFrame gestart
+2025-02-07 13:50:29 - INFO - Script ended in 0:00:01
+2025-02-07 13:50:35 - INFO - Logboek is geconfigureerd.
+2025-02-07 13:50:35 - INFO - Verbinding met database opnieuw geslaagd
+2025-02-07 13:50:35 - INFO - Ophalen connectiestrings gelukt
+2025-02-07 13:50:36 - INFO - Configuratie dictionary opgehaald
+2025-02-07 13:50:36 - INFO - Data omzetten naar DataFrame gestart
+2025-02-07 13:50:36 - INFO - Data omzetten naar DataFrame gestart
+2025-02-07 13:50:36 - INFO - Script ended in 0:00:01
+2025-02-07 14:03:22 - INFO - Logboek is geconfigureerd.
+2025-02-07 14:03:22 - INFO - Verbinding met database opnieuw geslaagd
+2025-02-07 14:03:22 - INFO - Ophalen connectiestrings gelukt
+2025-02-07 14:03:22 - INFO - Configuratie dictionary opgehaald
+2025-02-07 14:03:22 - INFO - Ontbrekende uren ophalen
+2025-02-07 14:03:22 - INFO - ====== WebDriver manager ======
+2025-02-07 14:03:31 - INFO - Get LATEST chromedriver version for google-chrome
+2025-02-07 14:03:31 - INFO - Get LATEST chromedriver version for google-chrome
+2025-02-07 14:03:32 - INFO - There is no [mac64] chromedriver "133.0.6943.53" for browser google-chrome "133.0.6943" in cache
+2025-02-07 14:03:32 - INFO - Get LATEST chromedriver version for google-chrome
+2025-02-07 14:03:32 - INFO - WebDriver version 133.0.6943.53 selected
+2025-02-07 14:03:32 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/133.0.6943.53/mac-x64/chromedriver-mac-x64.zip
+2025-02-07 14:03:32 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/133.0.6943.53/mac-x64/chromedriver-mac-x64.zip
+2025-02-07 14:03:32 - INFO - Driver downloading response is 200
+2025-02-07 14:03:32 - INFO - Get LATEST chromedriver version for google-chrome
+2025-02-07 14:03:33 - INFO - Driver has been saved in cache [/Users/maxrood/.wdm/drivers/chromedriver/mac64/133.0.6943.53]
+2025-02-07 14:03:41 - INFO - Bestand gedownload!
+2025-02-07 14:03:41 - INFO - Start excel verwerking
+2025-02-07 14:03:41 - INFO - Excel bestand succesvol verwerkt
+2025-02-07 14:03:41 - INFO - Kolommen type conversie
+2025-02-07 14:03:42 - INFO - Kolommen getransformeerd
+2025-02-07 14:03:42 - INFO - Leeggooien succesvol uitgevoerd voor tabel Ontbrekende_uren. Aantal verwijderde rijen: 58.
+2025-02-07 14:03:42 - INFO - Tabel Ontbrekende_uren leeg gemaakt, 58 rijen verwijderd
+2025-02-07 14:03:43 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Ontbrekende_uren
+2025-02-07 14:03:43 - INFO - Tabel Ontbrekende_uren gevuld met 58 rijen
+2025-02-07 14:03:43 - ERROR - Script mislukt: delete_excel_file() takes 1 positional argument but 6 were given
+2025-02-07 14:03:43 - INFO - Script ended in 0:00:21
+2025-02-07 14:19:07 - INFO - Logboek is geconfigureerd.
+2025-02-07 14:19:07 - INFO - Verbinding met database opnieuw geslaagd
+2025-02-07 14:19:07 - INFO - Ophalen connectiestrings gelukt
+2025-02-07 14:19:07 - INFO - Configuratie dictionary opgehaald
+2025-02-07 14:19:08 - INFO - Plaatsingen ophalen
+2025-02-07 14:19:08 - INFO - ====== WebDriver manager ======
+2025-02-07 14:19:08 - INFO - Get LATEST chromedriver version for google-chrome
+2025-02-07 14:19:08 - INFO - Get LATEST chromedriver version for google-chrome
+2025-02-07 14:19:08 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/133.0.6943.53/chromedriver-mac-x64/chromedriver] found in cache
+2025-02-07 14:19:17 - INFO - Bestand Plaatsing.xlsx succesvol gedownload!
+2025-02-07 14:19:17 - INFO - Start excel verwerking
+2025-02-07 14:19:17 - INFO - Excel bestand succesvol verwerkt
+2025-02-07 14:19:18 - INFO - Kolommen type conversie
+2025-02-07 14:19:18 - INFO - Kolommen getransformeerd
+2025-02-07 14:19:19 - INFO - Leeggooien succesvol uitgevoerd voor tabel Plaatsing. Aantal verwijderde rijen: 38.
+2025-02-07 14:19:19 - INFO - Tabel Plaatsing leeg gemaakt, 38 rijen verwijderd
+2025-02-07 14:19:19 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Plaatsing
+2025-02-07 14:19:19 - INFO - Tabel gevuld met 38 rijen
+2025-02-07 14:19:19 - INFO - Excel bestand verwijderd
+2025-02-07 14:19:19 - INFO - Script ended in 0:00:13
+2025-02-07 14:20:36 - INFO - Logboek is geconfigureerd.
+2025-02-07 14:20:36 - INFO - Verbinding met database opnieuw geslaagd
+2025-02-07 14:20:36 - INFO - Ophalen connectiestrings gelukt
+2025-02-07 14:20:36 - INFO - Configuratie dictionary opgehaald
+2025-02-07 14:20:36 - INFO - Plaatsingen ophalen
+2025-02-07 14:20:36 - INFO - ====== WebDriver manager ======
+2025-02-07 14:20:37 - INFO - Get LATEST chromedriver version for google-chrome
+2025-02-07 14:20:37 - INFO - Get LATEST chromedriver version for google-chrome
+2025-02-07 14:20:37 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/133.0.6943.53/chromedriver-mac-x64/chromedriver] found in cache
+2025-02-07 14:20:44 - INFO - Bestand Plaatsing.xlsx succesvol gedownload!
+2025-02-07 14:20:44 - INFO - Start excel verwerking
+2025-02-07 14:20:44 - INFO - Excel bestand succesvol verwerkt
+2025-02-07 14:20:44 - INFO - Kolommen type conversie
+2025-02-07 14:20:44 - INFO - Kolommen getransformeerd
+2025-02-07 14:20:47 - INFO - Leeggooien succesvol uitgevoerd voor tabel Plaatsing. Aantal verwijderde rijen: 121.
+2025-02-07 14:20:47 - INFO - Tabel Plaatsing leeg gemaakt, 121 rijen verwijderd
+2025-02-07 14:20:48 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Plaatsing
+2025-02-07 14:20:48 - INFO - Tabel gevuld met 121 rijen
+2025-02-07 14:20:48 - INFO - Excel bestand verwijderd
+2025-02-07 14:20:48 - INFO - Script ended in 0:00:12
+2025-02-07 14:39:01 - INFO - Logboek is geconfigureerd.
+2025-02-07 14:39:01 - INFO - Verbinding met database opnieuw geslaagd
+2025-02-07 14:39:01 - INFO - Ophalen connectiestrings gelukt
+2025-02-07 14:39:01 - INFO - Configuratie dictionary opgehaald
+2025-02-07 14:39:02 - INFO - Urenrapportage ophalen
+2025-02-07 14:39:02 - INFO - ====== WebDriver manager ======
+2025-02-07 14:39:02 - INFO - Get LATEST chromedriver version for google-chrome
+2025-02-07 14:39:02 - INFO - Get LATEST chromedriver version for google-chrome
+2025-02-07 14:39:02 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/133.0.6943.53/chromedriver-mac-x64/chromedriver] found in cache
+2025-02-07 14:39:24 - INFO - Bestand succesvol hernoemd naar: Urenrapportage_2025-01-01_2025-02-28.xlsx
+2025-02-07 14:39:25 - INFO - Start excel verwerking
+2025-02-07 14:39:27 - INFO - Excel bestand succesvol verwerkt
+2025-02-07 14:39:27 - INFO - Kolommen type conversie
+2025-02-07 14:39:27 - INFO - Kolommen getransformeerd
+2025-02-07 14:39:27 - INFO - Leeggooien succesvol uitgevoerd voor tabel Urenregistratie. Aantal verwijderde rijen: 1766.
+2025-02-07 14:39:27 - INFO - Tabel Urenregistratie leeg gemaakt van 2025-01-01 tot 2025-02-28
+2025-02-07 14:39:29 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Urenregistratie
+2025-02-07 14:39:29 - INFO - Tabel gevuld met None rijen met Data van 2025-01-01 tot 2025-02-28
+2025-02-07 14:39:29 - INFO - Excel bestand verwijderd
+2025-02-07 14:39:29 - INFO - Script ended in 0:00:28

@@ -1,19 +1,16 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException, ElementNotInteractableException
-from selenium.webdriver.common.action_chains import ActionChains
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.options import Options
-from ontbrekend_modules.log import log
-import pandas as pd
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium import webdriver
+import logging
 import time
 import os
 
-def ontbrekende_uren_bestand_opslaan(euururl, euurusername, euurpassword, greit_connection_string, klant, script, scriptid, bron, base_dir):
-    log(greit_connection_string, klant, bron, f"Ontbrekende uren ophalen", script, scriptid)
+def ontbrekende_uren_bestand_opslaan(euururl, euurusername, euurpassword, base_dir):
+    logging.info(f"Ontbrekende uren ophalen")
                 
     chrome_options = Options()
     chrome_options.add_argument("--disable-gpu")  # Disables GPU hardware acceleration (optioneel)
@@ -41,14 +38,14 @@ def ontbrekende_uren_bestand_opslaan(euururl, euurusername, euurpassword, greit_
             driver.get(euururl)
             print("Stap 2: URL geopend")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het openen van de URL: {str(e)}", script, scriptid)
+            logging.error("Fout bij het openen van de URL: {str(e)}")
 
         # Stap 3: Wacht tot de pagina is geladen
         try:
             WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME, "username")))
             print("Stap 3: Pagina geladen, gebruikersnaam veld gevonden")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het wachten tot de pagina is geladen: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het wachten tot de pagina is geladen: {str(e)}")
 
         # Stap 4: Vul inloggegevens in
         try:
@@ -58,7 +55,7 @@ def ontbrekende_uren_bestand_opslaan(euururl, euurusername, euurpassword, greit_
             password.send_keys(euurpassword)
             print("Stap 4: Inloggegevens ingevoerd")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het inloggen: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het invullen van inloggegevens: {str(e)}")
 
         # Stap 5: Klik op de inlogknop
         try:
@@ -66,14 +63,14 @@ def ontbrekende_uren_bestand_opslaan(euururl, euurusername, euurpassword, greit_
             login_button.click()
             print("Stap 5: Inlogknop aangeklikt")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het klikken op de inlogknop: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het klikken op de inlogknop: {str(e)}")
 
         # Stap 6: Wacht tot inloggen voltooid is
         try:
             WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "div[data-id='dashboard']")))
             print("Stap 6: Inloggen voltooid, dashboard geladen")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het wachten tot inloggen voltooid is: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het wachten tot inloggen voltooid is: {str(e)}")
 
         # Stap 7: Klik op de 'Start' knop
         try:
@@ -83,7 +80,7 @@ def ontbrekende_uren_bestand_opslaan(euururl, euurusername, euurpassword, greit_
             start_button.click()
             print("Stap 7: 'Start' knop aangeklikt")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het klikken op de 'Start' knop: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het klikken op de 'Start' knop: {str(e)}")
 
         # Stap 8: Klik op de 'Urenbriefjes' element
         try:
@@ -93,7 +90,7 @@ def ontbrekende_uren_bestand_opslaan(euururl, euurusername, euurpassword, greit_
             plaatsingen_element.click()
             print("Stap 8: 'Urenbriefjes' element aangeklikt")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het klikken op het 'Urenbriefjes' element: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het klikken op het 'Urenbriefjes' element: {str(e)}")
 
         # Stap 9: klik op de specifieke optie | Ontbrekende urenbriefjes
         try:
@@ -103,7 +100,7 @@ def ontbrekende_uren_bestand_opslaan(euururl, euurusername, euurpassword, greit_
             inactief_option.click()
             print("Stap 9: 'Ontbrekende urenbriefjes' optie aangeklikt")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het klikken op de 'Overzicht' optie: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het klikken op de 'Ontbrekende urenbriefjes' optie: {str(e)}")
         
         # Stap 11: Klik op de Excel-knop om te downloaden
         try:
@@ -120,15 +117,14 @@ def ontbrekende_uren_bestand_opslaan(euururl, euurusername, euurpassword, greit_
 
             while not os.path.exists(os.path.join(download_dir, filename)):
                 if time.time() - start_time > timeout:
-                    log(greit_connection_string, klant, bron, "Download duurde te lang!", script, scriptid)
+                    logging.error("Download duurde te lang!")
                     break
                 time.sleep(1)
 
             if os.path.exists(os.path.join(download_dir, filename)):
-                print(f"Bestand {filename} succesvol gedownload!")
-                log(greit_connection_string, klant, bron, f"Bestand {filename} succesvol gedownload", script, scriptid)
+                logging.info("Bestand gedownload!")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het klikken of downloaden: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het klikken op de Excel-knop: {str(e)}")
 
     finally:
         # Stap 11: Sluit de browser
@@ -136,4 +132,4 @@ def ontbrekende_uren_bestand_opslaan(euururl, euurusername, euurpassword, greit_
             driver.quit()
             print("Stap 11: Browser gesloten")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het sluiten van de browser: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het sluiten van de browser: {str(e)}")

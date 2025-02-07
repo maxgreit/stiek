@@ -4,8 +4,8 @@ from plaatsing_modules.selenium import inactieve_plaatsing_bestand_opslaan
 from plaatsing_modules.database import empty_and_fill_table
 from plaatsing_modules.type_mapping import apply_conversion
 from plaatsing_modules.table_mapping import apply_mapping
+from plaatsing_modules.log import end_log, setup_logging
 from plaatsing_modules.env_tool import env_check
-from plaatsing_modules.log import log, end_log
 import logging
 import time
 import os
@@ -16,7 +16,6 @@ def main():
     env_check()
 
     # Script configuratie
-    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
     klant = "Stiek"
     script = "Plaatsing Inactief"
     bron = 'E-Uuur'
@@ -36,10 +35,13 @@ def main():
     greit_connection_string = f'DRIVER={driver};SERVER={server};DATABASE={database};UID={username};PWD={password};Encrypt=no;TrustServerCertificate=no;Connection Timeout=30;'
 
     # Script ID bepalen
-    script_id = determine_script_id(greit_connection_string, klant, bron, script)
+    script_id = determine_script_id(greit_connection_string)
+    
+    # Set up logging (met database logging)
+    setup_logging(greit_connection_string, klant, bron, script, script_id)
 
     # Connectie dictionary maken
-    connection_dict = create_connection_dict(greit_connection_string, klant, bron, script, script_id)
+    connection_dict = create_connection_dict(greit_connection_string)
 
     try:
         for klantnaam, (klant_connection_string, type) in connection_dict.items():
@@ -48,29 +50,28 @@ def main():
                 bron = 'E-Uur'
                 
                 # Plaatsing bestand opslaan
-                inactieve_plaatsing_bestand_opslaan(euururl, euurusername, euurpassword, greit_connection_string, klant, script, script_id, bron, base_dir)    
+                inactieve_plaatsing_bestand_opslaan(euururl, euurusername, euurpassword, base_dir)  
 
                 # DataFrame uit Excel maken
-                df, file_path = get_df_from_excel(greit_connection_string, klant, script, script_id, base_dir)
+                df, file_path = get_df_from_excel(base_dir)
 
                 # Kolommen type conversie
-                converted_df = apply_conversion(df, tabelnaam, greit_connection_string, klant, bron, script, script_id)
+                converted_df = apply_conversion(df, tabelnaam)
 
                 # Data transformatie
-                transformed_df = apply_mapping(converted_df, tabelnaam, greit_connection_string, klant, bron, script, script_id)
+                transformed_df = apply_mapping(converted_df, tabelnaam)
                 
                 # Data overdracht
-                empty_and_fill_table(transformed_df, tabelnaam, klant_connection_string, greit_connection_string, klant, bron, script, script_id)
+                empty_and_fill_table(transformed_df, tabelnaam, klant_connection_string)
 
                 # Excel verwijderen
-                delete_excel_file(file_path, greit_connection_string, klant, bron, script, script_id)
+                delete_excel_file(file_path)
                 
     except Exception as e:
-        print(f"FOUTMELDING | Script mislukt: {e}")
-        log(greit_connection_string, klant, bron, f"FOUTMELDING | Script mislukt: {e}", script, script_id, tabelnaam)
+        logging.error(f"Script mislukt: {e}")
 
     # Eindtijd logging
-    end_log(start_time, greit_connection_string, klant, bron, script, script_id)
+    end_log(start_time)
 
 if __name__ == "__main__":
     main()

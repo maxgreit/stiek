@@ -1,14 +1,12 @@
-import pandas as pd
-from plaatsing_modules.log import log
-import os
-import re
 from openpyxl import load_workbook
+from datetime import datetime
+import pandas as pd
+import logging
 import os
 import re
-from datetime import datetime
 
-def get_file_path():
-    directory = '/Users/maxrood/werk/greit/klanten/stiek/e-uur/plaatsing/plaatsing_file'
+def get_file_path(base_dir):
+    directory = os.path.join(base_dir, "e-uur/plaatsing/plaatsing_file")
     
     # Controleer of de directory bestaat
     if not os.path.exists(directory):
@@ -87,34 +85,31 @@ def clean_excel(file_path):
         print(f"FOUTMELDING | Fout tijdens het opschonen van het Excel-bestand: {e}")
         raise
 
-def process_excel_file(filepath, logging_connection_string, klant, bron, script, scriptid):
+def process_excel_file(filepath):
     # log
-    print("Start excel verwerking")
-    log(logging_connection_string, klant, bron, "Start excel verwerking", script, scriptid, tabel=None)
+    logging.info("Start excel verwerking")
 
     # Excel bestand verwerken
     try:
         df = pd.read_excel(filepath)
-        print("Excel bestand succesvol verwerkt")
-        log(logging_connection_string, klant, bron, "Excel bestand succesvol verwerkt", script, scriptid, tabel=None)
+        logging.info("Excel bestand succesvol verwerkt")
         return df
     except Exception as e:
-        print(f"FOUTMELDING | Fout bij het verwerken van het Excel bestand: {e}")
-        log(logging_connection_string, klant, bron, f"FOUTMELDING | Fout bij het verwerken van het Excel bestand: {e}", script, scriptid, tabel=None)
+        logging.error(f"Fout bij het verwerken van het Excel bestand: {e}")
         return None
     
-def delete_excel_file(file_path, logging_connection_string, klant, bron, script, scriptid):
+def delete_excel_file(file_path):
     try:
         # Controleer of het bestand bestaat
         if os.path.exists(file_path):
             os.remove(file_path)
-            log(logging_connection_string, klant, bron, "Excel bestand verwijderd", script, scriptid, tabel=None)
+            logging.info("Excel bestand verwijderd")
         else:
-            print(f"Het bestand {file_path} bestaat niet of is al verwijderd.")
+            logging.warning(f"Het bestand {file_path} bestaat niet of is al verwijderd.")
     except Exception as e:
-        print(f"FOUTMELDING | Fout bij het verwijderen van het bestand: {e}")
+        logging.error(f"Fout bij het verwijderen van het bestand: {e}")
         
-def get_df_from_excel(greit_connection_string, klant, script, script_id, base_dir):
+def get_df_from_excel(base_dir):
     # Excel bestand ophalen
     bron = 'E-Uur'
     filepath = os.path.join(base_dir, "e-uur/plaatsing/plaatsing_file/Plaatsing.xlsx")
@@ -123,27 +118,23 @@ def get_df_from_excel(greit_connection_string, klant, script, script_id, base_di
     try:
         status = clean_excel(filepath)
         if status == "already_cleaned":
-            print("Het bestand was al opgeschoond, doorgaan met de rest van het script.")
+            logging.warning("Het bestand was al opgeschoond, doorgaan met de rest van het script.")
     except Exception as e: 
-        print(f"FOUTMELDING | Excel bestand opschonen mislukt: {e}")
-        log(greit_connection_string, klant, bron, f"FOUTMELDING | Excel bestand opschonen mislukt: {e}", script, script_id)
+        logging.error(f"Excel bestand opschonen mislukt: {e}")
         return
 
     # Voer Excel transformatie uit
     try:
-        df = process_excel_file(filepath, greit_connection_string, klant, bron, script, script_id)
+        df = process_excel_file(filepath)
     except Exception as e:
-        print(f"FOUTMELDING | Excel verwerking mislukt: {e}")
-        log(greit_connection_string, klant, bron, f"FOUTMELDING | Excel verwerking mislukt: {e}", script, script_id)
+        logging.error(f"Excel verwerking mislukt: {e}")
         
     # Dataframe check
     if df is None:
-        print(f"FOUTMELDING | Geen DataFrame geretourneerd")
-        log(greit_connection_string, klant, bron, f"FOUTMELDING | Geen DataFrame geretourneerd", script, script_id)
+        logging.error(f"Geen DataFrame geretourneerd")
         return
     if df.empty:
-        print(f"FOUTMELDING | DataFrame is leeg")
-        log(greit_connection_string, klant, bron, f"FOUTMELDING | DataFrame is leeg", script, script_id)
+        logging.error(f"DataFrame is leeg")
         return
         
     return df, filepath

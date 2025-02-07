@@ -1,5 +1,4 @@
 from fases_modules.database import connect_to_database
-from fases_modules.log import log
 import pandas as pd
 import logging
 import time
@@ -17,7 +16,7 @@ def fetch_current_contract_dict(cursor):
     
     return contract_dict
 
-def create_phase_df(klant_connection_string, greit_connection_string, klant, bron, script, script_id):
+def create_phase_df(klant_connection_string):
     max_retries = 3
     retry_delay = 5
     
@@ -41,15 +40,15 @@ def create_phase_df(klant_connection_string, greit_connection_string, klant, bro
         if contract_dict:
 
             # Start logging
-            log(greit_connection_string, klant, bron, f"Ophalen contract dictionary gelukt", script, script_id)
+            logging.info(f"Ophalen contract dictionary gelukt")
         else:
             # Foutmelding logging
-            print(f"FOUTMELDING | Ophalen contract dictionary mislukt na meerdere pogingen")
-            log(greit_connection_string, klant, bron, f"FOUTMELDING | Ophalen contract dictionary mislukt na meerdere pogingen", script, script_id)
+            logging.error(f"Ophalen contract dictionary mislukt na meerdere pogingen")
+
     else:
         # Foutmelding logging
-        print(f"FOUTMELDING | Verbinding met database mislukt na meerdere pogingen")
-        log(greit_connection_string, klant, bron, f"FOUTMELDING | Verbinding met database mislukt na meerdere pogingen", script, script_id)
+        logging.error(f"Verbinding met database mislukt na meerdere pogingen")
+
         return pd.DataFrame()
     
     # DataFrame maken van de contract_dict met de kolommen ID, Contracttype en Werknemer

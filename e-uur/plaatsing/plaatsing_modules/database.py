@@ -1,5 +1,5 @@
-from plaatsing_modules.log import log
 from sqlalchemy import create_engine
+import logging
 import urllib
 import pyodbc
 import time
@@ -40,13 +40,13 @@ def clear_table(connection_string, table, id_list):
                 """, (id_value,))
                 rows_deleted += cursor.rowcount  # Houd het aantal verwijderde rijen bij
             except pyodbc.Error as e:
-                print(f"Verwijderen van ID {id_value} in tabel {table} mislukt: {e}")
+                logging.error(f"Verwijderen van ID {id_value} in tabel {table} mislukt: {e}")
 
         # Commit de transactie
         connection.commit()
-        print(f"Leeggooien succesvol uitgevoerd voor tabel {table}. Aantal verwijderde rijen: {rows_deleted}.")
+        logging.info(f"Leeggooien succesvol uitgevoerd voor tabel {table}. Aantal verwijderde rijen: {rows_deleted}.")
     except pyodbc.Error as e:
-        print(f"Fout bij het leeggooien van tabel {table}: {e}")
+        logging.error(f"Fout bij het leeggooien van tabel {table}: {e}")
     finally:
         # Sluit de cursor en verbinding
         cursor.close()
@@ -70,35 +70,29 @@ def write_to_database(df, tabel, connection_string, batch_size=1000):
             rows_added += len(batch_df)
             print(f"{rows_added} rijen toegevoegd aan de tabel tot nu toe...")
         
-        print(f"DataFrame succesvol toegevoegd/bijgewerkt in de tabel: {tabel}")
+        logging.info(f"DataFrame succesvol toegevoegd/bijgewerkt in de tabel: {tabel}")
     except Exception as e:
-        print(f"Fout bij het toevoegen naar de database: {e}")
+        logging.error(f"Fout bij het toevoegen naar de database: {e}")
 
     return rows_added
 
 
-def empty_and_fill_table(df, tabelnaam, klant_connection_string, greit_connection_string, klant, bron, script, script_id):
+def empty_and_fill_table(df, tabelnaam, klant_connection_string):
     # Tabel leeg maken
     id_list = df['ID'].tolist()
     try:
         rows_deleted = clear_table(klant_connection_string, tabelnaam, id_list)
-        print(f"Tabel {tabelnaam} leeg gemaakt, {rows_deleted} rijen verwijderd")
-        log(greit_connection_string, klant, bron, f"Tabel {tabelnaam} leeg gemaakt, {rows_deleted} rijen verwijderd", script, script_id, tabelnaam)
+        logging.info(f"Tabel {tabelnaam} leeg gemaakt, {rows_deleted} rijen verwijderd")
     except Exception as e:
-        print(f"FOUTMELDING | Tabel leeg maken mislukt: {e}")
-        log(greit_connection_string, klant, bron, f"FOUTMELDING | Tabel leeg maken mislukt: {e}", script, script_id, tabelnaam)
+        logging.error(f"Tabel leeg maken mislukt: {e}")
         return
     
     # Tabel vullen
     try:
-        print(f"Volledige lengte {tabelnaam}: ", len(df))
-        log(greit_connection_string, klant, bron, f"Volledige lengte {tabelnaam}: {len(df)}", script, script_id,  tabelnaam)
         added_rows_count = write_to_database(df, tabelnaam, klant_connection_string)
-        print(f"Tabel {tabelnaam} gevuld")
-        log(greit_connection_string, klant, bron, f"Tabel gevuld met {added_rows_count} rijen", script, script_id,  tabelnaam)
+        logging.info(f"Tabel gevuld met {added_rows_count} rijen")
     except Exception as e:
-        print(f"FOUTMELDING | Tabel vullen mislukt: {e}")
-        log(greit_connection_string, klant, bron, f"FOUTMELDING | Tabel vullen mislukt: {e}", script, script_id,  tabelnaam)
+        logging.error(f"Tabel vullen mislukt: {e}")
         return
 
 

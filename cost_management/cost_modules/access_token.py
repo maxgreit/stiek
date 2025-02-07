@@ -1,6 +1,4 @@
-from dotenv import load_dotenv
 import requests
-import os
 
 def get_access_token(tenant_id, client_id, client_secret):
 

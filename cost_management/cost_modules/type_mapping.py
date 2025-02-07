@@ -1,7 +1,5 @@
-from cost_modules.log import log
-from decimal import Decimal
 import pandas as pd
-import numpy as np
+import logging
 
 kosten_typing =   {
     "Klant": "nvarchar",
@@ -52,7 +50,7 @@ def convert_column_types(df, column_types):
     
     return df
 
-def apply_type_conversion(greit_connection_string, klant, bron, script, script_id, df):
+def apply_type_conversion(df):
     # Kolom typing
     column_typing = {
         'Kosten': kosten_typing,
@@ -63,11 +61,9 @@ def apply_type_conversion(greit_connection_string, klant, bron, script, script_i
         # Type conversie
         try:
             df = convert_column_types(df, typing)
-            print(f"Kolommen type conversie")
-            log(greit_connection_string, klant, bron, f"Kolommen type conversie correct uitgevoerd", script, script_id, tabel)
+            logging.info(f"Kolommen type conversie")
         except Exception as e:
-            print(f"FOUTMELDING | Kolommen type conversie mislukt: {e}")
-            log(greit_connection_string, klant, bron, f"FOUTMELDING | Kolommen type conversie mislukt: {e}", script, script_id, tabel)
+            logging.error(f"Kolommen type conversie mislukt: {e}")
             return None
         
     return df

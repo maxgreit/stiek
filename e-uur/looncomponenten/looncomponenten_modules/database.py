@@ -1,11 +1,10 @@
+from sqlalchemy import create_engine
+import pandas as pd
+import logging
+import urllib
 import pyodbc
 import time
-from datetime import datetime
-import sqlalchemy
-from sqlalchemy import create_engine, event, text
-import urllib
-from looncomponenten_modules.log import log
-import pandas as pd
+
 
 def connect_to_database(connection_string):
     # Retries en delays
@@ -42,13 +41,13 @@ def clear_table(connection_string, table, id):
             """, (id,))
             rows_deleted += cursor.rowcount  # Houd het aantal verwijderde rijen bij
         except pyodbc.Error as e:
-            print(f"Verwijderen van ID {id} in tabel {table} mislukt: {e}")
+            logging.error(f"Verwijderen van ID {id} in tabel {table} mislukt: {e}")
 
         # Commit de transactie
         connection.commit()
-        print(f"Leeggooien succesvol uitgevoerd voor tabel {table}. Aantal verwijderde rijen: {rows_deleted}.")
+        logging.info(f"Leeggooien succesvol uitgevoerd voor tabel {table}. Aantal verwijderde rijen: {rows_deleted}.")
     except pyodbc.Error as e:
-        print(f"Fout bij het leeggooien van tabel {table}: {e}")
+        logging.error(f"Fout bij het leeggooien van tabel {table}: {e}")
     finally:
         # Sluit de cursor en verbinding
         cursor.close()
@@ -72,37 +71,32 @@ def write_to_database(df, tabel, connection_string, batch_size=1000):
             rows_added += len(batch_df)
             print(f"{rows_added} rijen toegevoegd aan de tabel tot nu toe...")
         
-        print(f"DataFrame succesvol toegevoegd/bijgewerkt in de tabel: {tabel}")
+        logging.info(f"DataFrame succesvol toegevoegd/bijgewerkt in de tabel: {tabel}")
     except Exception as e:
-        print(f"Fout bij het toevoegen naar de database: {e}")
+        logging.error(f"Fout bij het toevoegen naar de database: {e}")
     
     return rows_added
 
-def empty_and_fill_table(df, tabel, id, klant_connection_string, greit_connection_string, klant, bron, script, script_id):
+def empty_and_fill_table(df, tabel, id, klant_connection_string):
     # Tabel leeg maken
     try:
         rows_deleted = clear_table(klant_connection_string, tabel, id)
-        print(f"Tabel {tabel} leeg gemaakt, {rows_deleted} rijen verwijderd")
-        log(greit_connection_string, klant, bron, f"Tabel {tabel} leeg gemaakt, {rows_deleted} rijen verwijderd", script, script_id, tabel)
+        logging.info(f"Tabel {tabel} leeg gemaakt, {rows_deleted} rijen verwijderd")
+
     except Exception as e:
-        print(f"FOUTMELDING | Tabel leeg maken mislukt: {e}")
-        log(greit_connection_string, klant, bron, f"FOUTMELDING | Tabel leeg maken mislukt: {e}", script, script_id, tabel)
+        logging.error(f"Tabel leeg maken mislukt: {e}")
         return
     
     # Tabel vullen
     try:
-        print(f"Volledige lengte {tabel}: ", len(df))
-        log(greit_connection_string, klant, bron, f"Volledige lengte {tabel}: {len(df)}", script, script_id,  tabel)
         added_rows_count = write_to_database(df, tabel, klant_connection_string)
-        print(f"Tabel {tabel} gevuld")
-        log(greit_connection_string, klant, bron, f"Tabel gevuld met {added_rows_count} rijen", script, script_id,  tabel)
+        logging.info(f"Tabel {tabel} gevuld met {added_rows_count} rijen")
     except Exception as e:
-        print(f"FOUTMELDING | Tabel vullen mislukt: {e}")
-        log(greit_connection_string, klant, bron, f"FOUTMELDING | Tabel vullen mislukt: {e}", script, script_id,  tabel)
+        logging.error(f"Tabel vullen mislukt: {e}")
         return
     
     
-def fetch_plaatsing_data_from_table(connection_string, table_name, greit_connection_string, klant, bron, script, script_id):
+def fetch_plaatsing_data_from_table(connection_string, table_name):
     try:
         # Verbinding maken met de database
         conn = pyodbc.connect(connection_string)
@@ -143,16 +137,15 @@ def fetch_plaatsing_data_from_table(connection_string, table_name, greit_connect
 
     # Data omzetten naar DataFrame
     try:
-        log(greit_connection_string, klant, bron, f"Data omzetten naar DataFrame gestart", script, script_id)
+        logging.info("Data omzetten naar DataFrame gestart")
         df = pd.DataFrame.from_dict(plaatsing_dict, orient='index').reset_index()
         df.columns = ['ID', 'Werknemer', 'Actief']
         return df
     except Exception as e:
-        print(f"FOUTMELDING | Data omzetten naar DataFrame mislukt: {e}")
-        log(greit_connection_string, klant, bron, f"FOUTMELDING | Data omzetten naar DataFrame mislukt: {e}", script, script_id)
+        logging.error(f"Data omzetten naar DataFrame mislukt: {e}")
         return None
 
-def fetch_looncomponenten_data_from_table(connection_string, table_name, greit_connection_string, klant, bron, script, script_id):
+def fetch_looncomponenten_data_from_table(connection_string, table_name):
     try:
         # Verbinding maken met de database
         conn = pyodbc.connect(connection_string)
@@ -193,11 +186,10 @@ def fetch_looncomponenten_data_from_table(connection_string, table_name, greit_c
 
     # Data omzetten naar DataFrame
     try:
-        log(greit_connection_string, klant, bron, f"Data omzetten naar DataFrame gestart", script, script_id)
+        logging.info("Data omzetten naar DataFrame gestart")
         df = pd.DataFrame.from_dict(looncomponenten_dict, orient='index').reset_index()
         df.columns = ['ID', 'Werknemer', 'Actief']
         return df
     except Exception as e:
-        print(f"FOUTMELDING | Data omzetten naar DataFrame mislukt: {e}")
-        log(greit_connection_string, klant, bron, f"FOUTMELDING | Data omzetten naar DataFrame mislukt: {e}", script, script_id)
+        logging.error(f"FOUTMELDING | Data omzetten naar DataFrame mislukt: {e}")
         return None

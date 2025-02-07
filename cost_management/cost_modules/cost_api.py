@@ -1,11 +1,11 @@
-from cost_modules.log import log
 import pandas as pd
 import requests
+import logging
 
-def generate_cost_dataframe(subscription_id, klant, bron, script, script_id, greit_connection_string, bearer_token, start_datum, eind_datum):
+def generate_cost_dataframe(subscription_id, klant, bearer_token, start_datum, eind_datum):
     
     # Printen van begin en eind datum
-    print(f"Ophalen cost dataframe vanaf {start_datum} tot {eind_datum}")
+    logging.info(f"Ophalen cost dataframe vanaf {start_datum} tot {eind_datum}")
     
     # API URL voor het opvragen van kosten
     cost_url = f'https://management.azure.com/subscriptions/{subscription_id}/providers/Microsoft.CostManagement/query?api-version=2023-03-01'
@@ -43,23 +43,18 @@ def generate_cost_dataframe(subscription_id, klant, bron, script, script_id, gre
 
     # Maak een POST-verzoek om de kosten op te vragen
     try:
-        print("Maak een POST-verzoek om de kosten op te vragen")
-        log(greit_connection_string, klant, bron, "Maak een POST-verzoek om de kosten op te vragen", script, script_id)
+        logging.info("Maak een POST-verzoek om de kosten op te vragen")
         response = requests.post(cost_url, json=cost_body, headers=headers)
     except Exception as e:
-        print(f"Fout bij het opvragen van de kosten: {e}")
-        log(greit_connection_string, klant, bron, f"Fout bij het opvragen van de kosten: {e}", script, script_id)
+        logging.error(f"Fout bij het opvragen van de kosten: {e}")
         exit(1)
 
     # Controleer of de gegevens succesvol zijn opgevraagd
     if response.status_code == 200:
-        print('Kosteninformatie ontvangen')
-        log(greit_connection_string, klant, bron, "Kosteninformatie ontvangen", script, script_id)
+        logging.info('Kosteninformatie ontvangen')
         json_data = response.json()
     else:
-        print('Fout bij het ophalen van kosteninformatie:', response.status_code)
-        print(response.text)
-        log(greit_connection_string, klant, bron, f"FOUTMELDING | Fout bij het ophalen van kosteninformatie: {response.status_code}", script, script_id)
+        logging.error('Fout bij het ophalen van kosteninformatie:', response.status_code)
         exit(1)
 
     # Maak een DataFrame van de gegevens

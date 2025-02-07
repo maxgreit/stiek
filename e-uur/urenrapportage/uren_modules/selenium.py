@@ -1,21 +1,18 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException, ElementNotInteractableException
-from selenium.webdriver.common.action_chains import ActionChains
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 from dateutil.relativedelta import relativedelta
+from selenium.webdriver.common.by import By
 from datetime import datetime, timedelta
-from uren_modules.log import log
-import pandas as pd
+from selenium import webdriver
+import logging
 import time
 import os
 
-def urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword, greit_connection_string, klant, script, scriptid, bron, base_dir):
-    log(greit_connection_string, klant, bron, f"Urenrapportage ophalen", script, scriptid)
+def urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword, base_dir):
+    logging.info(f"Urenrapportage ophalen")
                 
     chrome_options = Options()
     chrome_options.add_argument("--disable-gpu")  # Disables GPU hardware acceleration (optioneel)
@@ -44,14 +41,14 @@ def urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword, greit_co
             driver.get(euururl)
             print("Stap 2: URL geopend")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het openen van de URL: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het openen van de URL: {str(e)}")
 
         # Stap 3: Wacht tot de pagina is geladen
         try:
             WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME, "username")))
             print("Stap 3: Pagina geladen, gebruikersnaam veld gevonden")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het wachten tot de pagina is geladen: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het wachten tot de pagina is geladen: {str(e)}")
 
         # Stap 4: Vul inloggegevens in
         try:
@@ -61,7 +58,7 @@ def urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword, greit_co
             password.send_keys(euurpassword)
             print("Stap 4: Inloggegevens ingevoerd")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het inloggen: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het invullen van inloggegevens: {str(e)}")
 
         # Stap 5: Klik op de inlogknop
         try:
@@ -69,14 +66,14 @@ def urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword, greit_co
             login_button.click()
             print("Stap 5: Inlogknop aangeklikt")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het klikken op de inlogknop: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het klikken op de inlogknop: {str(e)}")
 
         # Stap 6: Wacht tot inloggen voltooid is
         try:
             WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "div[data-id='dashboard']")))
             print("Stap 6: Inloggen voltooid, dashboard geladen")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het wachten tot inloggen voltooid is: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het wachten tot inloggen voltooid is: {str(e)}")
 
         # Stap 7: Klik op de 'Start' knop
         try:
@@ -86,7 +83,7 @@ def urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword, greit_co
             start_button.click()
             print("Stap 7: 'Start' knop aangeklikt")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het klikken op de 'Start' knop: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het klikken op de 'Start' knop: {str(e)}")
 
         # Stap 8: Klik op de 'Rapportage' element
         try:
@@ -96,7 +93,7 @@ def urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword, greit_co
             plaatsingen_element.click()
             print("Stap 8: 'Rapportage' element aangeklikt")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het klikken op het 'Rapportage' element: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het klikken op het 'Rapportage' element: {str(e)}")
 
         # Stap 9: klik op de specifieke optie | Urenrapportage
         try:
@@ -106,7 +103,7 @@ def urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword, greit_co
             inactief_option.click()
             print("Stap 9: 'Urenrapportage' optie aangeklikt")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het klikken op de 'Urenrapportage' optie: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het klikken op de 'Urenrapportage' optie: {str(e)}")
         
         # Stap 10: Klik op de filter knop
         try:
@@ -116,7 +113,7 @@ def urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword, greit_co
             filter_button.click()
             print("Tweede filterknop succesvol aangeklikt!")
         except Exception as e:
-            print(f"Fout bij het klikken op de tweede filterknop: {e}")
+            logging.error(f"Fout bij het klikken op de tweede filterknop: {e}")
             
         # Start- en einddatum bepalen
         start_datum = datetime.now().replace(day=1) - relativedelta(months=1)
@@ -134,7 +131,7 @@ def urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword, greit_co
             date_input.send_keys(f"{start_datum.strftime('%d-%m-%Y')}")  # Vul hier de gewenste datum in
             print("Startdatum succesvol ingevuld!")
         except Exception as e:
-            print(f"Fout bij het invullen van de startdatum: {e}")
+            logging.error(f"Fout bij het invullen van de startdatum: {e}")
 
         # Stap 12: Eind Datum invoeren
         try:
@@ -148,7 +145,7 @@ def urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword, greit_co
             date_input.send_keys(f"{eind_datum.strftime('%d-%m-%Y')}")  # Vul hier de gewenste datum in
             print("Einddatum succesvol ingevuld!")
         except Exception as e:
-            print(f"Fout bij het invullen van de einddatum: {e}")
+            logging.error(f"Fout bij het invullen van de einddatum: {e}")
             
         # Stap 13: Klik op de zoek knop
         try:
@@ -158,7 +155,7 @@ def urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword, greit_co
             search_button.click()
             print("Tweede zoek-knop succesvol aangeklikt!")
         except Exception as e:
-            print(f"Fout bij het klikken op de tweede zoek-knop: {e}")
+            logging.error(f"Fout bij het klikken op de tweede zoek-knop: {e}")
         
         time.sleep(10)
         
@@ -178,7 +175,7 @@ def urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword, greit_co
 
             while not os.path.exists(os.path.join(download_dir, default_filename)):
                 if time.time() - start_time > timeout:
-                    log(greit_connection_string, klant, bron, "Download duurde te lang!", script, scriptid)
+                    logging.error("Download duurde te lang!")
                     break
                 time.sleep(1)
 
@@ -189,13 +186,11 @@ def urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword, greit_co
                     os.path.join(download_dir, default_filename),
                     new_file_path
                 )
-                print(f"Bestand succesvol hernoemd naar: {new_filename}")
-                log(greit_connection_string, klant, bron, f"Bestand succesvol hernoemd naar: {new_filename}", script, scriptid)
+                logging.info(f"Bestand succesvol hernoemd naar: {new_filename}")
             else:
-                print("Gedownload bestand niet gevonden!")
-                log(greit_connection_string, klant, bron, "Gedownload bestand niet gevonden!", script, scriptid)
+                logging.error("Gedownload bestand niet gevonden!")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het klikken of downloaden: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het klikken op de Excel-knop: {e}")
 
     finally:
         # Stap 11: Sluit de browser
@@ -203,10 +198,10 @@ def urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword, greit_co
             driver.quit()
             print("Stap 11: Browser gesloten")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het sluiten van de browser: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het sluiten van de browser: {str(e)}")
             
-def een_maand_urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword, greit_connection_string, klant, script, scriptid, bron, base_dir):
-    log(greit_connection_string, klant, bron, f"Urenrapportage ophalen", script, scriptid)
+def een_maand_urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword, base_dir):
+    logging.info(f"Urenrapportage ophalen")
                 
     chrome_options = Options()
     chrome_options.add_argument("--disable-gpu")  # Disables GPU hardware acceleration (optioneel)
@@ -235,14 +230,14 @@ def een_maand_urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword
             driver.get(euururl)
             print("Stap 2: URL geopend")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het openen van de URL: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het openen van de URL: {str(e)}")
 
         # Stap 3: Wacht tot de pagina is geladen
         try:
             WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME, "username")))
             print("Stap 3: Pagina geladen, gebruikersnaam veld gevonden")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het wachten tot de pagina is geladen: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het wachten tot de pagina is geladen: {str(e)}")
 
         # Stap 4: Vul inloggegevens in
         try:
@@ -252,7 +247,7 @@ def een_maand_urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword
             password.send_keys(euurpassword)
             print("Stap 4: Inloggegevens ingevoerd")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het inloggen: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het invullen van inloggegevens: {str(e)}")
 
         # Stap 5: Klik op de inlogknop
         try:
@@ -260,14 +255,14 @@ def een_maand_urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword
             login_button.click()
             print("Stap 5: Inlogknop aangeklikt")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het klikken op de inlogknop: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het klikken op de inlogknop: {str(e)}")
 
         # Stap 6: Wacht tot inloggen voltooid is
         try:
             WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "div[data-id='dashboard']")))
             print("Stap 6: Inloggen voltooid, dashboard geladen")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het wachten tot inloggen voltooid is: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het wachten tot inloggen voltooid is: {str(e)}")
 
         # Stap 7: Klik op de 'Start' knop
         try:
@@ -277,7 +272,7 @@ def een_maand_urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword
             start_button.click()
             print("Stap 7: 'Start' knop aangeklikt")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het klikken op de 'Start' knop: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het klikken op de 'Start' knop: {str(e)}")
 
         # Stap 8: Klik op de 'Rapportage' element
         try:
@@ -287,7 +282,7 @@ def een_maand_urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword
             plaatsingen_element.click()
             print("Stap 8: 'Rapportage' element aangeklikt")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het klikken op het 'Rapportage' element: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het klikken op het 'Rapportage' element: {str(e)}")
 
         # Stap 9: klik op de specifieke optie | Urenrapportage
         try:
@@ -297,7 +292,7 @@ def een_maand_urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword
             inactief_option.click()
             print("Stap 9: 'Urenrapportage' optie aangeklikt")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het klikken op de 'Urenrapportage' optie: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het klikken op de 'Urenrapportage' optie: {str(e)}")
         
         # Stap 10: Klik op de filter knop
         try:
@@ -307,7 +302,7 @@ def een_maand_urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword
             filter_button.click()
             print("Tweede filterknop succesvol aangeklikt!")
         except Exception as e:
-            print(f"Fout bij het klikken op de tweede filterknop: {e}")
+            logging.error(f"Fout bij het klikken op de tweede filterknop: {e}")
             
         # Start- en einddatum bepalen
         start_datum = datetime.now().replace(day=1)
@@ -325,7 +320,7 @@ def een_maand_urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword
             date_input.send_keys(f"{start_datum.strftime('%d-%m-%Y')}")  # Vul hier de gewenste datum in
             print("Startdatum succesvol ingevuld!")
         except Exception as e:
-            print(f"Fout bij het invullen van de startdatum: {e}")
+            logging.error(f"Fout bij het invullen van de startdatum: {e}")
 
         # Stap 12: Eind Datum invoeren
         try:
@@ -339,7 +334,7 @@ def een_maand_urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword
             date_input.send_keys(f"{eind_datum.strftime('%d-%m-%Y')}")  # Vul hier de gewenste datum in
             print("Einddatum succesvol ingevuld!")
         except Exception as e:
-            print(f"Fout bij het invullen van de einddatum: {e}")
+            logging.error(f"Fout bij het invullen van de einddatum: {e}")
             
         # Stap 13: Klik op de zoek knop
         try:
@@ -349,7 +344,7 @@ def een_maand_urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword
             search_button.click()
             print("Tweede zoek-knop succesvol aangeklikt!")
         except Exception as e:
-            print(f"Fout bij het klikken op de tweede zoek-knop: {e}")
+            logging.error(f"Fout bij het klikken op de tweede zoek-knop: {e}")
         
         time.sleep(10)
         
@@ -369,7 +364,7 @@ def een_maand_urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword
 
             while not os.path.exists(os.path.join(download_dir, default_filename)):
                 if time.time() - start_time > timeout:
-                    log(greit_connection_string, klant, bron, "Download duurde te lang!", script, scriptid)
+                    logging.error("Download duurde te lang!")
                     break
                 time.sleep(1)
 
@@ -380,13 +375,11 @@ def een_maand_urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword
                     os.path.join(download_dir, default_filename),
                     new_file_path
                 )
-                print(f"Bestand succesvol hernoemd naar: {new_filename}")
-                log(greit_connection_string, klant, bron, f"Bestand succesvol hernoemd naar: {new_filename}", script, scriptid)
+                logging.info(f"Bestand succesvol hernoemd naar: {new_filename}")
             else:
-                print("Gedownload bestand niet gevonden!")
-                log(greit_connection_string, klant, bron, "Gedownload bestand niet gevonden!", script, scriptid)
+                logging.error("Gedownload bestand niet gevonden!")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het klikken of downloaden: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het klikken op de Excel-knop: {e}")
 
     finally:
         # Stap 11: Sluit de browser
@@ -394,4 +387,4 @@ def een_maand_urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword
             driver.quit()
             print("Stap 11: Browser gesloten")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het sluiten van de browser: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het sluiten van de browser: {str(e)}")

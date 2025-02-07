@@ -1,16 +1,16 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException, ElementNotInteractableException
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.options import Options
-from looncomponenten_modules.log import log
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium import webdriver
 import pandas as pd
+import logging
 
-def looncomponenten_ophalen(euururl, euurusername, euurpassword, target_object_id, werknemer, greit_connection_string, klant, script, scriptid, bron):
-    log(greit_connection_string, klant, bron, f"Looncomponenten ophalen voor {id} {werknemer}", script, scriptid)
+def looncomponenten_ophalen(euururl, euurusername, euurpassword, target_object_id, werknemer):
+    logging.info(f"Looncomponenten ophalen voor {id} {werknemer}")
                 
     chrome_options = Options()
     chrome_options.add_argument("--disable-gpu")  # Disables GPU hardware acceleration (optioneel)
@@ -36,14 +36,14 @@ def looncomponenten_ophalen(euururl, euurusername, euurpassword, target_object_i
             driver.get(euururl)
             print("Stap 2: URL geopend")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het openen van de URL: {str(e)}", script, scriptid)
+            logging.error("Fout bij het openen van de URL: {str(e)}")
 
         # Stap 3: Wacht tot de pagina is geladen
         try:
             WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME, "username")))
             print("Stap 3: Pagina geladen, gebruikersnaam veld gevonden")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het wachten tot de pagina is geladen: {str(e)}", script, scriptid)
+            logging.error("Fout bij het wachten tot de pagina is geladen: {str(e)}")
 
         # Stap 4: Vul inloggegevens in
         try:
@@ -53,7 +53,7 @@ def looncomponenten_ophalen(euururl, euurusername, euurpassword, target_object_i
             password.send_keys(euurpassword)
             print("Stap 4: Inloggegevens ingevoerd")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het inloggen: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het invullen van inloggegevens: {str(e)}")
 
         # Stap 5: Klik op de inlogknop
         try:
@@ -61,14 +61,14 @@ def looncomponenten_ophalen(euururl, euurusername, euurpassword, target_object_i
             login_button.click()
             print("Stap 5: Inlogknop aangeklikt")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het klikken op de inlogknop: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het klikken op de inlogknop: {str(e)}")
 
         # Stap 6: Wacht tot inloggen voltooid is
         try:
             WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "div[data-id='dashboard']")))
             print("Stap 6: Inloggen voltooid, dashboard geladen")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het wachten tot inloggen voltooid is: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het wachten tot inloggen voltooid is: {str(e)}")
 
         # Stap 7: Klik op de 'Start' knop
         try:
@@ -78,7 +78,7 @@ def looncomponenten_ophalen(euururl, euurusername, euurpassword, target_object_i
             start_button.click()
             print("Stap 7: 'Start' knop aangeklikt")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het klikken op de 'Start' knop: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het klikken op de 'Start' knop: {str(e)}")
 
         # Stap 8: Wacht totdat het element 'Plaatsingen' zichtbaar en klikbaar is
         try:
@@ -88,7 +88,7 @@ def looncomponenten_ophalen(euururl, euurusername, euurpassword, target_object_i
             plaatsingen_element.click()
             print("Stap 8: 'Plaatsingen' element aangeklikt")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het klikken op het 'Plaatsingen' element: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het klikken op het 'Plaatsingen' element: {str(e)}")
 
         # **Nieuwe stap**: Klik op de 'Inactief' optie na het klikken op Plaatsingen
         try:
@@ -98,7 +98,7 @@ def looncomponenten_ophalen(euururl, euurusername, euurpassword, target_object_i
             inactief_option.click()
             print("Stap 9: 'Overzicht' optie aangeklikt")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het klikken op de 'Overzicht' optie: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het klikken op de 'Overzicht' optie: {str(e)}")
 
         # Stap 9: Zoek de specifieke rij op basis van objectid
         try:
@@ -123,7 +123,7 @@ def looncomponenten_ophalen(euururl, euurusername, euurpassword, target_object_i
                         print(f"Probeer het opnieuw. Poging {attempts}/{max_attempts}")
                         go_to_next_page()
                     else:
-                        print(f"Maximaal aantal pogingen bereikt. Object met ID {target_object_id} niet gevonden na {max_attempts} pogingen.")
+                        logging.error(f"Maximaal aantal pogingen bereikt. Object met ID {target_object_id} niet gevonden na {max_attempts} pogingen.")
                         break
                 
                 # Wacht tot de pagina is geladen nadat de volgende pagina is aangeklikt
@@ -131,7 +131,7 @@ def looncomponenten_ophalen(euururl, euurusername, euurpassword, target_object_i
                     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//tr[@module='confirmedassignmentmerger']")))
 
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het zoeken naar de specifieke rij: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het zoeken naar de specifieke rij: {str(e)}")
 
         # Stap 10: Wacht totdat de tabel opnieuw is geladen na het klikken
         try:
@@ -140,14 +140,14 @@ def looncomponenten_ophalen(euururl, euurusername, euurpassword, target_object_i
             )
             print("Stap 10: Tabel opnieuw geladen")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het wachten tot de tabel opnieuw is geladen: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het wachten tot de tabel opnieuw is geladen: {str(e)}")
 
         # Verkrijg de rijen opnieuw na het laden
         try:
             table_rows = driver.find_elements(By.XPATH, "//tr[@tablename='AssignmentcomponentTable']")
             print("Stap 11: Rijen verkregen")
         except Exception as e: 
-            log(greit_connection_string, klant, bron, f"Fout bij het verkrijgen van de rijen: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het verkrijgen van de rijen: {str(e)}")
         
         # Lijst om de data op te slaan
         looncomponenten_data = []
@@ -172,18 +172,18 @@ def looncomponenten_ophalen(euururl, euurusername, euurpassword, target_object_i
                         })
                 
                 except Exception as e:
-                    log(greit_connection_string, klant, bron, f"Fout bij het verkrijgen van de rij: {str(e)}", script, scriptid)
+                    logging.error(f"Fout bij het verkrijgen van de rij: {str(e)}")
                     continue
 
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het verwerken van de rijen: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het verkrijgen van de rijen: {str(e)}")
 
         # Zet de lijst om naar een DataFrame
         df = pd.DataFrame(looncomponenten_data)
 
     except TimeoutException:
-        log(greit_connection_string, klant, bron, "Een element kon niet op tijd worden gevonden, controleer je selectors en probeer opnieuw.", script, scriptid)
-        print("Een element kon niet op tijd worden gevonden, controleer je selectors en probeer opnieuw.")
+        logging.error("Element kon niet op tijd worden gevonden, controleer je selectors en probeer opnieuw.")
+
         df = pd.DataFrame()  # Lege DataFrame in geval van fout
 
     finally:
@@ -192,16 +192,16 @@ def looncomponenten_ophalen(euururl, euurusername, euurpassword, target_object_i
             driver.quit()
             print("Stap 11: Browser gesloten")
         except Exception as e:
-            log(greit_connection_string, klant, bron, f"Fout bij het sluiten van de browser: {str(e)}", script, scriptid)
+            logging.error(f"Fout bij het sluiten van de browser: {str(e)}")
     
     # Dataframe check
     if df is None:
-        print(f"FOUTMELDING | Geen DataFrame geretourneerd")
-        log(greit_connection_string, klant, bron, f"FOUTMELDING | Geen DataFrame geretourneerd", script, scriptid)
+        logging.error("Geen DataFrame geretourneerd")
+
         return
     if df.empty:
-        print(f"FOUTMELDING | DataFrame is leeg")
-        log(greit_connection_string, klant, bron, f"FOUTMELDING | DataFrame is leeg", script, scriptid)
+        logging.warning("DataFrame is leeg")
+
         return       
      
     return df

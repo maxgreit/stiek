@@ -1,5 +1,5 @@
-from plaatsing_modules.log import log
 import pandas as pd
+import logging
 
 plaatsing_typing =   {
     "Id": "bigint",
@@ -61,7 +61,7 @@ def convert_column_types(df, column_types):
     
     return df
 
-def apply_conversion(df, tabelnaam, greit_connection_string, klant, bron, script, script_id):
+def apply_conversion(df, tabelnaam):
     # Kolom typing
     column_typing = {
         'Plaatsing': plaatsing_typing,
@@ -73,11 +73,9 @@ def apply_conversion(df, tabelnaam, greit_connection_string, klant, bron, script
             # Type conversie
             try:
                 converted_df = convert_column_types(df, typing)
-                print(f"Kolommen type conversie")
-                log(greit_connection_string, klant, bron, f"Kolommen type conversie correct uitgevoerd", script, script_id, tabelnaam)
+                logging.info(f"Kolommen type conversie")
                 
                 return converted_df
             except Exception as e:
-                print(f"FOUTMELDING | Kolommen type conversie mislukt: {e}")
-                log(greit_connection_string, klant, bron, f"FOUTMELDING | Kolommen type conversie mislukt: {e}", script, script_id, tabelnaam)
+                logging.error(f"Kolommen type conversie mislukt: {e}")
                 
