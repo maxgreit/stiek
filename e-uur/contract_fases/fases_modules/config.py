@@ -4,7 +4,7 @@ import time
 
 def fetch_current_script_id(cursor):
     # Voer de query uit om het hoogste ScriptID op te halen
-    query = 'SELECT MAX(ScriptID) FROM Logging'
+    query = 'SELECT MAX(Script_ID) FROM Logboek'
     cursor.execute(query)
     
     # Verkrijg het resultaat
