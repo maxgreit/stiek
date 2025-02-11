@@ -112,7 +112,7 @@ def ontbrekende_uren_bestand_opslaan(euururl, euurusername, euurpassword, base_d
             
             # Wachten op het downloaden van het bestand
             filename = "Ontbrekende Urenbriefjes.xlsx"  # Pas aan
-            timeout = 30
+            timeout = 120
             start_time = time.time()
 
             while not os.path.exists(os.path.join(download_dir, filename)):

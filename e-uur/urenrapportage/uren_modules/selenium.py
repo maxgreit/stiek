@@ -170,7 +170,7 @@ def urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword, base_dir
             # Wachten op het downloaden van het bestand
             default_filename = "Urenrapportage.xlsx"  # Pas aan
             new_filename = f"Urenrapportage_{start_datum.strftime('%Y-%m-%d')}_{eind_datum.strftime('%Y-%m-%d')}.xlsx"
-            timeout = 30
+            timeout = 120
             start_time = time.time()
 
             while not os.path.exists(os.path.join(download_dir, default_filename)):
@@ -359,7 +359,7 @@ def een_maand_urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword
             # Wachten op het downloaden van het bestand
             default_filename = "Urenrapportage.xlsx"  # Pas aan
             new_filename = f"Urenrapportage_{start_datum.strftime('%Y-%m-%d')}_{eind_datum.strftime('%Y-%m-%d')}.xlsx"
-            timeout = 30
+            timeout = 120
             start_time = time.time()
 
             while not os.path.exists(os.path.join(download_dir, default_filename)):

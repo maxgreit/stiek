@@ -113,7 +113,7 @@ def actieve_plaatsing_bestand_opslaan(euururl, euurusername, euurpassword, base_
             
             # Wachten op het downloaden van het bestand
             filename = "Plaatsing.xlsx"  # Pas aan
-            timeout = 30
+            timeout = 120
             start_time = time.time()
 
             while not os.path.exists(os.path.join(download_dir, filename)):
@@ -239,7 +239,7 @@ def inactieve_plaatsing_bestand_opslaan(euururl, euurusername, euurpassword, bas
             
             # Wachten op het downloaden van het bestand
             filename = "Plaatsing.xlsx"  # Pas aan
-            timeout = 30
+            timeout = 120
             start_time = time.time()
 
             while not os.path.exists(os.path.join(download_dir, filename)):
