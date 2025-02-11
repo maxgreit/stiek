@@ -111,7 +111,7 @@ def ontbrekende_uren_bestand_opslaan(euururl, euurusername, euurpassword, base_d
             print("Excel-knop succesvol aangeklikt!")
             
             # Wachten op het downloaden van het bestand
-            filename = "Ontbrekende Urenbriefjes.xlsx"  # Pas aan
+            filename = "Ontbrekende urenbriefjes.xlsx"  # Pas aan
             timeout = 120
             start_time = time.time()
 
