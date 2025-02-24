@@ -180,6 +180,7 @@ def urenrapportage_bestand_opslaan(euururl, euurusername, euurpassword, base_dir
                 time.sleep(1)
 
             # Hernoemen van het bestand
+            logging.info(f"Bestand gedownload: {default_filename}")
             if os.path.exists(os.path.join(download_dir, default_filename)):
                 new_file_path = os.path.join(download_dir, new_filename)
                 os.rename(

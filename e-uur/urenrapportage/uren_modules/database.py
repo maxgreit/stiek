@@ -64,11 +64,13 @@ def write_to_database(df, tabel, connection_string, batch_size=1000):
             # Schrijf direct naar de database
             batch_df.to_sql(tabel, con=engine, index=False, if_exists="append", schema="dbo")
             rows_added += len(batch_df)
-            print(f"{rows_added} rijen toegevoegd aan de tabel tot nu toe...")
+            logging.info(f"{rows_added} rijen toegevoegd aan de tabel tot nu toe...")
         
         logging.info(f"DataFrame succesvol toegevoegd/bijgewerkt in de tabel: {tabel}")
     except Exception as e:
         logging.error(f"Fout bij het toevoegen naar de database: {e}")
+        
+    return rows_added
 
 
 def empty_and_fill_table(df, tabelnaam, klant_connection_string, detail, begindatum, einddatum):

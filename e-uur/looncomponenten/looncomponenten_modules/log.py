@@ -3,60 +3,54 @@ import logging
 import pyodbc
 import time
 
-class DatabaseHandler(logging.Handler):
+class BufferedDatabaseHandler(logging.Handler):
     def __init__(self, conn_str, customer, source, script, script_id):
+        """
+        Logging handler die logs buffert en pas aan het einde alles in één keer naar de database schrijft.
+        """
         super().__init__()
         self.conn_str = conn_str
         self.customer = customer
         self.source = source
         self.script = script
         self.script_id = script_id
-        try:
-            # Maak verbinding met de Azure Database
-            self.conn = pyodbc.connect(self.conn_str)
-            self.cursor = self.conn.cursor()
-            # Zorg ervoor dat de table bestaat
-            self.cursor.execute('''
-                IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='Logboek' AND xtype='U')
-                CREATE TABLE Logboek (
-                    ID INT IDENTITY PRIMARY KEY,
-                    Niveau VARCHAR(50),
-                    Bericht TEXT,
-                    Datumtijd DATETIME,
-                    Klant VARCHAR(100),
-                    Bron VARCHAR(100),
-                    Script VARCHAR(100),
-                    Script_ID INT
-                )
-            ''')
-            self.conn.commit()
-        except Exception as e:
-            # Fout bij het verbinden met de database of het maken van de tabel
-            logging.error(f"Fout bij het verbinden met de database of het maken van de tabel: {e}")
+        self.log_buffer = []  # Buffer om logs tijdelijk op te slaan
 
     def emit(self, record):
+        """
+        Voeg een logbericht toe aan de buffer.
+        """
+        log_message = self.format(record)
+        log_message = log_message.split('-')[-1].strip()  # Optioneel: maak bericht schoner
+        created_at = datetime.fromtimestamp(record.created).strftime('%Y-%m-%d %H:%M:%S')
+
+        log_entry = (record.levelname, log_message, created_at, self.customer, self.source, self.script, self.script_id)
+        self.log_buffer.append(log_entry)
+
+    def flush_logs(self):
+        """
+        Schrijf alle buffered logs in één keer naar de database.
+        """
+        if not self.log_buffer:
+            return  # Niets om te flushen
+
         try:
-            # Voeg de extra informatie toe aan het logbericht
-            log_message = self.format(record)
-            log_message = log_message.split('-')[-1].strip()
-            
-            # Converteer de tijd naar een string in het juiste formaat
-            created_at = datetime.fromtimestamp(record.created).strftime('%Y-%m-%d %H:%M:%S')
-            
-            # Voer de SQL-query uit om het logbericht in de database in te voegen
-            self.cursor.execute("INSERT INTO Logboek (Niveau, Bericht, Datumtijd, Klant, Bron, Script, Script_ID) VALUES (?, ?, ?, ?, ?, ?, ?)",
-                                (record.levelname, log_message, created_at, self.customer, self.source, self.script, self.script_id))
-            self.conn.commit()
+            with pyodbc.connect(self.conn_str) as conn:
+                with conn.cursor() as cursor:
+                    cursor.executemany(
+                        "INSERT INTO Logboek (Niveau, Bericht, Datumtijd, Klant, Bron, Script, Script_ID) VALUES (?, ?, ?, ?, ?, ?, ?)",
+                        self.log_buffer
+                    )
+                    conn.commit()
+            self.log_buffer.clear()  # Leeg de buffer na succesvolle insert
         except Exception as e:
-            # Fout bij het invoegen van het logbericht in de database
-            logging.error(f"Fout bij het invoegen van het logbericht in de database: {e}")
+            print(f"Fout bij flush_logs: {e}")
 
     def close(self):
-        try:
-            self.cursor.close()
-            self.conn.close()
-        except Exception as e:
-            logging.error(f"Fout bij het sluiten van de databaseverbinding: {e}")
+        """
+        Zorg ervoor dat alle logs worden geflushed voordat het script stopt.
+        """
+        self.flush_logs()
         super().close()
 
 
@@ -77,11 +71,13 @@ def setup_logging(conn_str, klant, bron, script, script_id, log_file='app.log', 
     logger.addHandler(file_handler)
 
     # Voeg de DatabaseHandler toe aan de logger
-    db_handler = DatabaseHandler(conn_str, klant, bron, script, script_id)
+    db_handler = BufferedDatabaseHandler(conn_str, klant, bron, script, script_id)
     db_handler.setFormatter(file_formatter)  # Gebruik dezelfde formatter voor de database
     logger.addHandler(db_handler)
 
     logging.info("Logboek is geconfigureerd.")
+    
+    return db_handler
 
 # Functie om de starttijd van het script te loggen
 def start_log():

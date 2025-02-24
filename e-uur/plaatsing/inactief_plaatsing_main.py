@@ -38,7 +38,7 @@ def main():
     script_id = determine_script_id(greit_connection_string)
     
     # Set up logging (met database logging)
-    setup_logging(greit_connection_string, klant, bron, script, script_id)
+    db_handler = setup_logging(greit_connection_string, klant, bron, script, script_id)
 
     # Connectie dictionary maken
     connection_dict = create_connection_dict(greit_connection_string)
@@ -72,6 +72,10 @@ def main():
 
     # Eindtijd logging
     end_log(start_time)
+    
+    # Logging afhandelen
+    db_handler.flush_logs()
+    logging.shutdown()
 
 if __name__ == "__main__":
     main()

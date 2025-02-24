@@ -1,0 +1,53 @@
+2025-02-24 10:37:59 - INFO - Logboek is geconfigureerd.
+2025-02-24 10:37:59 - INFO - Verbinding met database opnieuw geslaagd
+2025-02-24 10:37:59 - INFO - Ophalen connectiestrings gelukt
+2025-02-24 10:37:59 - INFO - Configuratie dictionary opgehaald
+2025-02-24 10:37:59 - INFO - Urenrapportage ophalen
+2025-02-24 10:38:00 - INFO - ====== WebDriver manager ======
+2025-02-24 10:38:08 - INFO - Get LATEST chromedriver version for google-chrome
+2025-02-24 10:38:09 - INFO - Get LATEST chromedriver version for google-chrome
+2025-02-24 10:38:09 - INFO - There is no [mac64] chromedriver "133.0.6943.126" for browser google-chrome "133.0.6943" in cache
+2025-02-24 10:38:09 - INFO - Get LATEST chromedriver version for google-chrome
+2025-02-24 10:38:09 - INFO - WebDriver version 133.0.6943.126 selected
+2025-02-24 10:38:09 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/133.0.6943.126/mac-x64/chromedriver-mac-x64.zip
+2025-02-24 10:38:09 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/133.0.6943.126/mac-x64/chromedriver-mac-x64.zip
+2025-02-24 10:38:10 - INFO - Driver downloading response is 200
+2025-02-24 10:38:10 - INFO - Get LATEST chromedriver version for google-chrome
+2025-02-24 10:38:10 - INFO - Driver has been saved in cache [/Users/maxrood/.wdm/drivers/chromedriver/mac64/133.0.6943.126]
+2025-02-24 10:38:36 - INFO - Bestand succesvol hernoemd naar: Urenrapportage_2025-01-01_2025-02-28.xlsx
+2025-02-24 10:38:38 - INFO - Start excel verwerking
+2025-02-24 10:38:40 - INFO - Excel bestand succesvol verwerkt
+2025-02-24 10:38:40 - INFO - Kolommen type conversie
+2025-02-24 10:38:40 - INFO - Kolommen getransformeerd
+2025-02-24 10:38:40 - INFO - Leeggooien succesvol uitgevoerd voor tabel Urenregistratie. Aantal verwijderde rijen: 0.
+2025-02-24 10:38:41 - INFO - Tabel Urenregistratie leeg gemaakt van 2025-01-01 tot 2025-02-28
+2025-02-24 10:38:43 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Urenregistratie
+2025-02-24 10:38:43 - INFO - Tabel gevuld met None rijen met Data van 2025-01-01 tot 2025-02-28
+2025-02-24 10:38:43 - INFO - Excel bestand verwijderd
+2025-02-24 10:38:44 - INFO - Script ended in 0:00:58
+2025-02-24 11:11:04 - INFO - Logboek is geconfigureerd.
+2025-02-24 11:11:04 - INFO - Verbinding met database opnieuw geslaagd
+2025-02-24 11:11:04 - INFO - Ophalen connectiestrings gelukt
+2025-02-24 11:11:04 - INFO - Configuratie dictionary opgehaald
+2025-02-24 11:11:04 - INFO - Urenrapportage ophalen
+2025-02-24 11:11:04 - INFO - ====== WebDriver manager ======
+2025-02-24 11:11:05 - INFO - Get LATEST chromedriver version for google-chrome
+2025-02-24 11:11:05 - INFO - Get LATEST chromedriver version for google-chrome
+2025-02-24 11:11:05 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/133.0.6943.126/chromedriver-mac-x64/chromedriver] found in cache
+2025-02-24 11:11:30 - INFO - Bestand gedownload: Urenrapportage.xlsx
+2025-02-24 11:11:30 - INFO - Bestand succesvol hernoemd naar: Urenrapportage_2025-01-01_2025-02-28.xlsx
+2025-02-24 11:11:32 - INFO - Start excel verwerking
+2025-02-24 11:11:34 - INFO - Excel bestand succesvol verwerkt
+2025-02-24 11:11:34 - INFO - Kolommen type conversie
+2025-02-24 11:11:34 - INFO - Kolommen getransformeerd
+2025-02-24 11:11:36 - INFO - Leeggooien succesvol uitgevoerd voor tabel Urenregistratie. Aantal verwijderde rijen: 4199.
+2025-02-24 11:11:36 - INFO - Tabel Urenregistratie leeg gemaakt van 2025-01-01 tot 2025-02-28
+2025-02-24 11:11:37 - INFO - 1000 rijen toegevoegd aan de tabel tot nu toe...
+2025-02-24 11:11:38 - INFO - 2000 rijen toegevoegd aan de tabel tot nu toe...
+2025-02-24 11:11:39 - INFO - 3000 rijen toegevoegd aan de tabel tot nu toe...
+2025-02-24 11:11:40 - INFO - 4000 rijen toegevoegd aan de tabel tot nu toe...
+2025-02-24 11:11:40 - INFO - 4199 rijen toegevoegd aan de tabel tot nu toe...
+2025-02-24 11:11:40 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Urenregistratie
+2025-02-24 11:11:40 - INFO - Tabel gevuld met 4199 rijen met Data van 2025-01-01 tot 2025-02-28
+2025-02-24 11:11:40 - INFO - Excel bestand verwijderd
+2025-02-24 11:11:40 - INFO - Script ended in 0:00:54
