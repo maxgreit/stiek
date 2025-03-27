@@ -18,7 +18,7 @@ def main():
     # Script configuratie
     klant = "Stiek"
     script = "Plaatsing Actief"
-    bron = 'E-Uuur'
+    bron = 'E-Uur'
     start_time = time.time()
 
     # Omgevingsvariabelen

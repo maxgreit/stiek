@@ -200,7 +200,7 @@ def looncomponenten_ophalen(euururl, euurusername, euurpassword, target_object_i
 
         return
     if df.empty:
-        logging.warning("DataFrame is leeg")
+        logging.info("DataFrame is leeg")
 
         return       
      

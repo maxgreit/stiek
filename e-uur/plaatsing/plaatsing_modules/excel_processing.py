@@ -105,7 +105,7 @@ def delete_excel_file(file_path):
             os.remove(file_path)
             logging.info("Excel bestand verwijderd")
         else:
-            logging.warning(f"Het bestand {file_path} bestaat niet of is al verwijderd.")
+            logging.info(f"Het bestand {file_path} bestaat niet of is al verwijderd.")
     except Exception as e:
         logging.error(f"Fout bij het verwijderen van het bestand: {e}")
         
@@ -118,7 +118,7 @@ def get_df_from_excel(base_dir):
     try:
         status = clean_excel(filepath)
         if status == "already_cleaned":
-            logging.warning("Het bestand was al opgeschoond, doorgaan met de rest van het script.")
+            logging.info("Het bestand was al opgeschoond, doorgaan met de rest van het script.")
     except Exception as e: 
         logging.error(f"Excel bestand opschonen mislukt: {e}")
         return
