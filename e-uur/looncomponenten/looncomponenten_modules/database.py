@@ -179,7 +179,7 @@ def fetch_looncomponenten_data_from_table(connection_string, table_name):
         # Verbinding sluiten
         cursor.close()
         conn.close()
-
+    
     except Exception as e:
         print(f"Fout bij het ophalen van data uit de tabel {table_name}: {e}")
         return None
@@ -188,7 +188,7 @@ def fetch_looncomponenten_data_from_table(connection_string, table_name):
     try:
         logging.info("Data omzetten naar DataFrame gestart")
         df = pd.DataFrame.from_dict(looncomponenten_dict, orient='index').reset_index()
-        df.columns = ['ID', 'Werknemer', 'Actief']
+        df.columns = ['ID', 'Looncomponent', 'Loon']
         return df
     except Exception as e:
         logging.error(f"FOUTMELDING | Data omzetten naar DataFrame mislukt: {e}")

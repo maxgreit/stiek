@@ -210,3 +210,752 @@
 2025-03-26 16:37:11 - INFO - Tabel gevuld met 3434 rijen met Data van 2025-02-01 tot 2025-03-31
 2025-03-26 16:37:11 - INFO - Excel bestand verwijderd
 2025-03-26 16:37:11 - INFO - Script ended in 0:00:41
+2025-04-24 10:02:56 - INFO - Logboek is geconfigureerd.
+2025-04-24 10:02:56 - INFO - Verbinding met database opnieuw geslaagd
+2025-04-24 10:02:56 - INFO - Ophalen connectiestrings gelukt
+2025-04-24 10:02:56 - INFO - Configuratie dictionary opgehaald
+2025-04-24 10:02:56 - INFO - Plaatsingen ophalen
+2025-04-24 10:02:56 - INFO - ====== WebDriver manager ======
+2025-04-24 10:03:02 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 10:03:02 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 10:03:02 - INFO - There is no [mac64] chromedriver "135.0.7049.114" for browser google-chrome "135.0.7049" in cache
+2025-04-24 10:03:02 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 10:03:03 - INFO - WebDriver version 135.0.7049.114 selected
+2025-04-24 10:03:03 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.114/mac-x64/chromedriver-mac-x64.zip
+2025-04-24 10:03:03 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.114/mac-x64/chromedriver-mac-x64.zip
+2025-04-24 10:03:03 - INFO - Driver downloading response is 200
+2025-04-24 10:03:04 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 10:03:04 - INFO - Driver has been saved in cache [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114]
+2025-04-24 10:03:12 - INFO - Bestand Plaatsing.xlsx succesvol gedownload!
+2025-04-24 10:03:12 - INFO - Start excel verwerking
+2025-04-24 10:03:12 - INFO - Excel bestand succesvol verwerkt
+2025-04-24 10:03:12 - INFO - Kolommen type conversie
+2025-04-24 10:03:12 - INFO - Kolommen getransformeerd
+2025-04-24 10:03:14 - INFO - Leeggooien succesvol uitgevoerd voor tabel Plaatsing. Aantal verwijderde rijen: 38.
+2025-04-24 10:03:14 - INFO - Tabel Plaatsing leeg gemaakt, 38 rijen verwijderd
+2025-04-24 10:03:15 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Plaatsing
+2025-04-24 10:03:15 - INFO - Tabel gevuld met 38 rijen
+2025-04-24 10:03:15 - INFO - Excel bestand verwijderd
+2025-04-24 10:03:15 - INFO - Script ended in 0:00:21
+2025-04-24 10:03:32 - INFO - Logboek is geconfigureerd.
+2025-04-24 10:03:32 - INFO - Verbinding met database opnieuw geslaagd
+2025-04-24 10:03:32 - INFO - Ophalen connectiestrings gelukt
+2025-04-24 10:03:32 - INFO - Configuratie dictionary opgehaald
+2025-04-24 10:03:32 - INFO - Plaatsingen ophalen
+2025-04-24 10:03:32 - INFO - ====== WebDriver manager ======
+2025-04-24 10:03:32 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 10:03:32 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 10:03:32 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 10:03:44 - INFO - Bestand Plaatsing.xlsx succesvol gedownload!
+2025-04-24 10:03:44 - INFO - Start excel verwerking
+2025-04-24 10:03:44 - INFO - Excel bestand succesvol verwerkt
+2025-04-24 10:03:44 - INFO - Kolommen type conversie
+2025-04-24 10:03:44 - INFO - Kolommen getransformeerd
+2025-04-24 10:03:45 - INFO - Leeggooien succesvol uitgevoerd voor tabel Plaatsing. Aantal verwijderde rijen: 38.
+2025-04-24 10:03:45 - INFO - Tabel Plaatsing leeg gemaakt, 38 rijen verwijderd
+2025-04-24 10:03:46 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Plaatsing
+2025-04-24 10:03:46 - INFO - Tabel gevuld met 38 rijen
+2025-04-24 10:03:46 - INFO - Excel bestand verwijderd
+2025-04-24 10:03:46 - INFO - Script ended in 0:00:16
+2025-04-24 10:04:11 - INFO - Logboek is geconfigureerd.
+2025-04-24 10:04:11 - INFO - Verbinding met database opnieuw geslaagd
+2025-04-24 10:04:11 - INFO - Ophalen connectiestrings gelukt
+2025-04-24 10:04:11 - INFO - Configuratie dictionary opgehaald
+2025-04-24 10:04:11 - INFO - Plaatsingen ophalen
+2025-04-24 10:04:11 - INFO - ====== WebDriver manager ======
+2025-04-24 10:04:12 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 10:04:12 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 10:04:12 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 10:04:19 - INFO - Bestand Plaatsing.xlsx succesvol gedownload!
+2025-04-24 10:04:19 - INFO - Start excel verwerking
+2025-04-24 10:04:19 - INFO - Excel bestand succesvol verwerkt
+2025-04-24 10:04:19 - INFO - Kolommen type conversie
+2025-04-24 10:04:19 - INFO - Kolommen getransformeerd
+2025-04-24 10:04:24 - INFO - Leeggooien succesvol uitgevoerd voor tabel Plaatsing. Aantal verwijderde rijen: 150.
+2025-04-24 10:04:24 - INFO - Tabel Plaatsing leeg gemaakt, 150 rijen verwijderd
+2025-04-24 10:04:25 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Plaatsing
+2025-04-24 10:04:25 - INFO - Tabel gevuld met 150 rijen
+2025-04-24 10:04:25 - INFO - Excel bestand verwijderd
+2025-04-24 10:04:25 - INFO - Script ended in 0:00:15
+2025-04-24 10:04:34 - INFO - Logboek is geconfigureerd.
+2025-04-24 10:04:34 - INFO - Verbinding met database opnieuw geslaagd
+2025-04-24 10:04:34 - INFO - Ophalen connectiestrings gelukt
+2025-04-24 10:04:34 - INFO - Configuratie dictionary opgehaald
+2025-04-24 10:04:34 - INFO - Urenrapportage ophalen
+2025-04-24 10:04:34 - INFO - ====== WebDriver manager ======
+2025-04-24 10:04:34 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 10:04:34 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 10:04:34 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 10:04:57 - INFO - Bestand gedownload: Urenrapportage.xlsx
+2025-04-24 10:04:57 - INFO - Bestand succesvol hernoemd naar: Urenrapportage_2025-03-01_2025-04-30.xlsx
+2025-04-24 10:04:58 - INFO - Start excel verwerking
+2025-04-24 10:05:00 - INFO - Excel bestand succesvol verwerkt
+2025-04-24 10:05:00 - INFO - Kolommen type conversie
+2025-04-24 10:05:00 - INFO - Kolommen getransformeerd
+2025-04-24 10:05:00 - INFO - Leeggooien succesvol uitgevoerd voor tabel Urenregistratie. Aantal verwijderde rijen: 0.
+2025-04-24 10:05:00 - INFO - Tabel Urenregistratie leeg gemaakt van 2025-03-01 tot 2025-04-30
+2025-04-24 10:05:01 - INFO - 1000 rijen toegevoegd aan de tabel tot nu toe...
+2025-04-24 10:05:01 - INFO - 2000 rijen toegevoegd aan de tabel tot nu toe...
+2025-04-24 10:05:02 - INFO - 3000 rijen toegevoegd aan de tabel tot nu toe...
+2025-04-24 10:05:02 - INFO - 3422 rijen toegevoegd aan de tabel tot nu toe...
+2025-04-24 10:05:02 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Urenregistratie
+2025-04-24 10:05:02 - INFO - Tabel gevuld met 3422 rijen met Data van 2025-03-01 tot 2025-04-30
+2025-04-24 10:05:02 - INFO - Excel bestand verwijderd
+2025-04-24 10:05:02 - INFO - Script ended in 0:00:31
+2025-04-24 10:05:29 - INFO - Logboek is geconfigureerd.
+2025-04-24 10:05:29 - INFO - Verbinding met database opnieuw geslaagd
+2025-04-24 10:05:29 - INFO - Ophalen connectiestrings gelukt
+2025-04-24 10:05:29 - INFO - Configuratie dictionary opgehaald
+2025-04-24 10:05:29 - INFO - Ontbrekende uren ophalen
+2025-04-24 10:05:29 - INFO - ====== WebDriver manager ======
+2025-04-24 10:05:29 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 10:05:29 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 10:05:29 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 10:05:36 - INFO - Bestand gedownload!
+2025-04-24 10:05:36 - INFO - Start excel verwerking
+2025-04-24 10:05:36 - INFO - Excel bestand succesvol verwerkt
+2025-04-24 10:05:36 - INFO - Kolommen type conversie
+2025-04-24 10:05:36 - INFO - Kolommen getransformeerd
+2025-04-24 10:05:37 - INFO - Leeggooien succesvol uitgevoerd voor tabel Ontbrekende_uren. Aantal verwijderde rijen: 40.
+2025-04-24 10:05:37 - INFO - Tabel Ontbrekende_uren leeg gemaakt, 40 rijen verwijderd
+2025-04-24 10:05:37 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Ontbrekende_uren
+2025-04-24 10:05:37 - INFO - Tabel Ontbrekende_uren gevuld met 40 rijen
+2025-04-24 10:05:37 - INFO - Excel bestand verwijderd
+2025-04-24 10:05:37 - INFO - Script ended in 0:00:11
+2025-04-24 12:13:21 - INFO - Logboek is geconfigureerd.
+2025-04-24 12:13:21 - INFO - Verbinding met database opnieuw geslaagd
+2025-04-24 12:13:21 - INFO - Ophalen connectiestrings gelukt
+2025-04-24 12:13:21 - INFO - Configuratie dictionary opgehaald
+2025-04-24 12:13:22 - INFO - Data omzetten naar DataFrame gestart
+2025-04-24 12:13:22 - INFO - Data omzetten naar DataFrame gestart
+2025-04-24 12:13:22 - INFO - Script ended in 0:00:03
+2025-04-24 12:14:14 - INFO - Logboek is geconfigureerd.
+2025-04-24 12:14:14 - INFO - Verbinding met database opnieuw geslaagd
+2025-04-24 12:14:14 - INFO - Ophalen connectiestrings gelukt
+2025-04-24 12:14:14 - INFO - Configuratie dictionary opgehaald
+2025-04-24 12:14:15 - INFO - Data omzetten naar DataFrame gestart
+2025-04-24 12:14:15 - INFO - Data omzetten naar DataFrame gestart
+2025-04-24 12:14:15 - INFO - Script ended in 0:00:03
+2025-04-24 12:14:37 - INFO - Logboek is geconfigureerd.
+2025-04-24 12:14:37 - INFO - Verbinding met database opnieuw geslaagd
+2025-04-24 12:14:37 - INFO - Ophalen connectiestrings gelukt
+2025-04-24 12:14:37 - INFO - Configuratie dictionary opgehaald
+2025-04-24 12:14:37 - INFO - Data omzetten naar DataFrame gestart
+2025-04-24 12:14:37 - INFO - Data omzetten naar DataFrame gestart
+2025-04-24 12:14:37 - INFO - Script ended in 0:00:02
+2025-04-24 12:15:10 - INFO - Logboek is geconfigureerd.
+2025-04-24 12:15:10 - INFO - Verbinding met database opnieuw geslaagd
+2025-04-24 12:15:10 - INFO - Ophalen connectiestrings gelukt
+2025-04-24 12:15:10 - INFO - Configuratie dictionary opgehaald
+2025-04-24 12:15:11 - INFO - Data omzetten naar DataFrame gestart
+2025-04-24 12:15:11 - INFO - Data omzetten naar DataFrame gestart
+2025-04-24 12:15:11 - INFO - Script ended in 0:00:03
+2025-04-24 12:15:41 - INFO - Logboek is geconfigureerd.
+2025-04-24 12:15:41 - INFO - Verbinding met database opnieuw geslaagd
+2025-04-24 12:15:41 - INFO - Ophalen connectiestrings gelukt
+2025-04-24 12:15:41 - INFO - Configuratie dictionary opgehaald
+2025-04-24 12:15:41 - INFO - Data omzetten naar DataFrame gestart
+2025-04-24 12:15:41 - INFO - Data omzetten naar DataFrame gestart
+2025-04-24 12:15:41 - INFO - Script ended in 0:00:03
+2025-04-24 12:15:57 - INFO - Logboek is geconfigureerd.
+2025-04-24 12:15:57 - INFO - Verbinding met database opnieuw geslaagd
+2025-04-24 12:15:57 - INFO - Ophalen connectiestrings gelukt
+2025-04-24 12:15:57 - INFO - Configuratie dictionary opgehaald
+2025-04-24 12:15:58 - INFO - Data omzetten naar DataFrame gestart
+2025-04-24 12:15:58 - INFO - Data omzetten naar DataFrame gestart
+2025-04-24 12:15:58 - INFO - Script ended in 0:00:03
+2025-04-24 12:51:58 - INFO - Logboek is geconfigureerd.
+2025-04-24 12:51:58 - INFO - Verbinding met database opnieuw geslaagd
+2025-04-24 12:51:58 - INFO - Ophalen connectiestrings gelukt
+2025-04-24 12:51:58 - INFO - Configuratie dictionary opgehaald
+2025-04-24 12:51:59 - INFO - Data omzetten naar DataFrame gestart
+2025-04-24 12:51:59 - INFO - Data omzetten naar DataFrame gestart
+2025-04-24 12:51:59 - INFO - Script ended in 0:00:13
+2025-04-24 12:53:44 - INFO - Logboek is geconfigureerd.
+2025-04-24 12:53:44 - INFO - Verbinding met database opnieuw geslaagd
+2025-04-24 12:53:44 - INFO - Ophalen connectiestrings gelukt
+2025-04-24 12:53:44 - INFO - Configuratie dictionary opgehaald
+2025-04-24 12:53:44 - INFO - Data omzetten naar DataFrame gestart
+2025-04-24 12:53:44 - INFO - Data omzetten naar DataFrame gestart
+2025-04-24 12:53:44 - INFO - Script ended in 0:00:03
+2025-04-24 12:57:02 - INFO - Logboek is geconfigureerd.
+2025-04-24 12:57:02 - INFO - Verbinding met database opnieuw geslaagd
+2025-04-24 12:57:02 - INFO - Ophalen connectiestrings gelukt
+2025-04-24 12:57:02 - INFO - Configuratie dictionary opgehaald
+2025-04-24 12:57:02 - INFO - Data omzetten naar DataFrame gestart
+2025-04-24 12:57:02 - INFO - Data omzetten naar DataFrame gestart
+2025-04-24 12:57:02 - INFO - Script ended in 0:00:04
+2025-04-24 12:58:07 - INFO - Logboek is geconfigureerd.
+2025-04-24 12:58:07 - INFO - Verbinding met database opnieuw geslaagd
+2025-04-24 12:58:07 - INFO - Ophalen connectiestrings gelukt
+2025-04-24 12:58:07 - INFO - Configuratie dictionary opgehaald
+2025-04-24 12:58:07 - INFO - Data omzetten naar DataFrame gestart
+2025-04-24 12:58:07 - INFO - Data omzetten naar DataFrame gestart
+2025-04-24 12:58:07 - INFO - Script ended in 0:00:03
+2025-04-24 13:16:19 - INFO - Logboek is geconfigureerd.
+2025-04-24 13:16:19 - INFO - Verbinding met database opnieuw geslaagd
+2025-04-24 13:16:19 - INFO - Ophalen connectiestrings gelukt
+2025-04-24 13:16:19 - INFO - Configuratie dictionary opgehaald
+2025-04-24 13:16:20 - INFO - Data omzetten naar DataFrame gestart
+2025-04-24 13:16:20 - INFO - Data omzetten naar DataFrame gestart
+2025-04-24 13:16:20 - INFO - Script ended in 0:00:04
+2025-04-24 13:17:08 - INFO - Logboek is geconfigureerd.
+2025-04-24 13:17:08 - INFO - Verbinding met database opnieuw geslaagd
+2025-04-24 13:17:08 - INFO - Ophalen connectiestrings gelukt
+2025-04-24 13:17:08 - INFO - Configuratie dictionary opgehaald
+2025-04-24 13:17:09 - INFO - Data omzetten naar DataFrame gestart
+2025-04-24 13:17:09 - INFO - Data omzetten naar DataFrame gestart
+2025-04-24 13:17:09 - INFO - Script ended in 0:00:03
+2025-04-24 13:18:02 - INFO - Logboek is geconfigureerd.
+2025-04-24 13:18:02 - INFO - Verbinding met database opnieuw geslaagd
+2025-04-24 13:18:02 - INFO - Ophalen connectiestrings gelukt
+2025-04-24 13:18:02 - INFO - Configuratie dictionary opgehaald
+2025-04-24 13:18:03 - INFO - Data omzetten naar DataFrame gestart
+2025-04-24 13:18:03 - INFO - Data omzetten naar DataFrame gestart
+2025-04-24 13:18:03 - INFO - Script ended in 0:00:03
+2025-04-24 13:23:31 - INFO - Logboek is geconfigureerd.
+2025-04-24 13:23:31 - INFO - Verbinding met database opnieuw geslaagd
+2025-04-24 13:23:31 - INFO - Ophalen connectiestrings gelukt
+2025-04-24 13:23:31 - INFO - Configuratie dictionary opgehaald
+2025-04-24 13:23:32 - INFO - Data omzetten naar DataFrame gestart
+2025-04-24 13:23:32 - INFO - Looncomponenten ophalen voor <built-in function id> Ricky  Bihari
+2025-04-24 13:23:32 - INFO - ====== WebDriver manager ======
+2025-04-24 13:23:32 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:23:32 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:23:32 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:24:23 - INFO - Logboek is geconfigureerd.
+2025-04-24 13:24:23 - INFO - Verbinding met database opnieuw geslaagd
+2025-04-24 13:24:23 - INFO - Ophalen connectiestrings gelukt
+2025-04-24 13:24:23 - INFO - Configuratie dictionary opgehaald
+2025-04-24 13:24:24 - INFO - Data omzetten naar DataFrame gestart
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002653359 Ricky  Bihari is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002658728 Michael van der Vliet is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002658751 Sander Dietz is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002658766 André Baron is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002658767 Jacob Wiese is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002687318 Khaled  - Sukkari is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002694626 Can Özçelik is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002694656 Casper Rijswijk is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002694692 Remon Dorlandt is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002715120 Emrah Acay is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002726475 Derk van Limburg is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002726996 Ricky  Bihari is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002727020 Randall Vijent is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002727308 Ernesto Woudenberg is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002730139 Marcel Duijn is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002736093 Alexis Werkman is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002742312 Mehdi Arafi is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002743552 Martin van der Meij is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002744608 Taco Rink is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002745528 Marco van Hoogwaarden is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002749401 Thomas Hoff is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002762056 Wesley Luiting is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002775952 Bayram Avci is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002775955 Sven Bakker is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002775956 Ahmed Shukry is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002779781 Daniël de Haas is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002787441 Sjoerd  Kaptein is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002792184 Derk van Limburg is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002806359 Michiel Vergeest is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002806449 Jos Hervij is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002826450 Luke Smit is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002853847 Tim Duivenvoorden is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002854038 Vincent van Hiele is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002854110 Lotte Groart is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002896573 Remco Rutten is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002896647 Jos Hervij is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002900866 Bram Struik is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002924733 Govinda Dihal is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002927973 Maik Vrasdonk is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002928154 Anouk van Kuik is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002929430 Jens Damschen is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002935723 Annie Ambagtsheer is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002967477 Faye Edmondson is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002979218 Jeroen Goedhart is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002979278 Wesley Luiting is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000002999829 Shirley Negenman is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000003000943 Denzel Blankenzee is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000003008758 Abdullah Alkhalaf is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000003028235 Ahmed Jendoubi is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000003039057 Sander Dietz is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000003039080 Alexis Werkman is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000003039089 Bram Struik is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000003039105 Remon Dorlandt is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000003039112 Annie Ambagtsheer is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000003039120 Casper Rijswijk is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000003039136 Govinda Dihal is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000003039153 Jeroen Goedhart is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000003039161 Can Özçelik is niet actief
+2025-04-24 13:24:24 - ERROR - Looncomponenten ophalen voor 550273000003039169 Shirley Negenman is niet actief
+2025-04-24 13:24:24 - INFO - Looncomponenten ophalen voor <built-in function id> André Baron
+2025-04-24 13:24:24 - INFO - ====== WebDriver manager ======
+2025-04-24 13:24:24 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:24:24 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:24:24 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:24:41 - INFO - Kolommen type conversie
+2025-04-24 13:24:41 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 6.
+2025-04-24 13:24:41 - INFO - Tabel Looncomponenten leeg gemaakt, 6 rijen verwijderd
+2025-04-24 13:24:42 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:24:42 - INFO - Tabel Looncomponenten gevuld met 7 rijen
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003039183 Jacob Wiese is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003039186 Ernesto Woudenberg is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003039192 Taco Rink is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003039198 Denzel Blankenzee is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003039203 Daniël de Haas is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003039205 Anouk van Kuik is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003039208 Sven Bakker is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003039211 Sjoerd  Kaptein is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003039217 Luke Smit is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003039226 Vincent van Hiele is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003039235 Remco Rutten is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003039387 Marcel Duijn is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003039500 Dylan Bakker is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003041151 Tim Duivenvoorden is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003063078 Coen Lammers is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003077986 Abdullah Alkhalaf is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003078385 Donovan Oosterveer is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003081487 Can Özçelik is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003085803 Remon Dorlandt is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003086379 Remon Dorlandt is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003088911 Ghazal Hilal is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003100933 Jeroen Kruijff is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003100967 Juntherly Samboe is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003122951 Patrick Schilder is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003123418 Hendrik Bonte is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003134145 Ferry Hupse is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003137257 Ole Hoekveld is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003167481 Jeroen Kruijff is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003167489 Dylan Bakker is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003167493 Wesley Luiting is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003167514 Jens Damschen is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003167799 Ahmed Jendoubi is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003170314 Patricia Burger is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003175009 Timothy Kanoonya is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003181076 Alwin Ozinga is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003190269 Ferdinand Hartog is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003191782 Govert Blom is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003197094 Can Özçelik is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003206087 Alexis Werkman is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003206088 Bram Struik is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003206091 Govinda Dihal is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003206093 Tim Duivenvoorden is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003206094 Coen Lammers is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003206096 Donovan Oosterveer is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003206098 Ole Hoekveld is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003212134 Barbara Veeneman is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003214856 Onno Jansen is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003231486 Tim Duivenvoorden is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003233078 Eric Dijkhuis is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003233339 Hannah Koopman is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003240759 Robin Wessendorp is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003240761 Marek Balon is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003256789 Yara Bauer is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003263975 Koen Brantenaar is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003264063 Youssef el Aouati is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003278160 Peter Gloens is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003283166 Mario Wolters is niet actief
+2025-04-24 13:24:42 - ERROR - Looncomponenten ophalen voor 550273000003283176 Paul Dignum is niet actief
+2025-04-24 13:24:42 - INFO - Looncomponenten ophalen voor <built-in function id> Sam de Vos
+2025-04-24 13:24:42 - INFO - ====== WebDriver manager ======
+2025-04-24 13:24:42 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:24:42 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:24:42 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:25:00 - INFO - Kolommen type conversie
+2025-04-24 13:25:01 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 12.
+2025-04-24 13:25:01 - INFO - Tabel Looncomponenten leeg gemaakt, 12 rijen verwijderd
+2025-04-24 13:25:01 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:25:01 - INFO - Tabel Looncomponenten gevuld met 12 rijen
+2025-04-24 13:25:01 - INFO - Looncomponenten ophalen voor <built-in function id> Rogier Smit
+2025-04-24 13:25:01 - INFO - ====== WebDriver manager ======
+2025-04-24 13:25:02 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:25:02 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:25:02 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:25:19 - INFO - Kolommen type conversie
+2025-04-24 13:25:19 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 10.
+2025-04-24 13:25:19 - INFO - Tabel Looncomponenten leeg gemaakt, 10 rijen verwijderd
+2025-04-24 13:25:20 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:25:20 - INFO - Tabel Looncomponenten gevuld met 10 rijen
+2025-04-24 13:25:20 - ERROR - Looncomponenten ophalen voor 550273000003307700 Leonardo Servage is niet actief
+2025-04-24 13:25:20 - ERROR - Looncomponenten ophalen voor 550273000003316973 Matthijs  van Polen is niet actief
+2025-04-24 13:25:20 - ERROR - Looncomponenten ophalen voor 550273000003333545 Etem Yüksel is niet actief
+2025-04-24 13:25:20 - ERROR - Looncomponenten ophalen voor 550273000003347343 Isabeau Deters is niet actief
+2025-04-24 13:25:20 - ERROR - Looncomponenten ophalen voor 550273000003356886 Gideon Djobo is niet actief
+2025-04-24 13:25:20 - ERROR - Looncomponenten ophalen voor 550273000003371098 Dinesh Balgobiend is niet actief
+2025-04-24 13:25:20 - ERROR - Looncomponenten ophalen voor 550273000003374048 Govert Blom is niet actief
+2025-04-24 13:25:20 - ERROR - Looncomponenten ophalen voor 550273000003374073 Patrick Schilder is niet actief
+2025-04-24 13:25:20 - ERROR - Looncomponenten ophalen voor 550273000003374079 Hannah Koopman is niet actief
+2025-04-24 13:25:20 - ERROR - Looncomponenten ophalen voor 550273000003374099 Koen Brantenaar is niet actief
+2025-04-24 13:25:20 - ERROR - Looncomponenten ophalen voor 550273000003374100 Eric Dijkhuis is niet actief
+2025-04-24 13:25:20 - ERROR - Looncomponenten ophalen voor 550273000003374107 Can Özçelik is niet actief
+2025-04-24 13:25:20 - ERROR - Looncomponenten ophalen voor 550273000003374118 Tim Duivenvoorden is niet actief
+2025-04-24 13:25:20 - ERROR - Looncomponenten ophalen voor 550273000003374778 Alwin Ozinga is niet actief
+2025-04-24 13:25:20 - ERROR - Looncomponenten ophalen voor 550273000003384463 Onno Jansen is niet actief
+2025-04-24 13:25:20 - INFO - Looncomponenten ophalen voor <built-in function id> Leroy de Jong
+2025-04-24 13:25:20 - INFO - ====== WebDriver manager ======
+2025-04-24 13:25:20 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:25:20 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:25:20 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:25:38 - INFO - Kolommen type conversie
+2025-04-24 13:25:38 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 11.
+2025-04-24 13:25:38 - INFO - Tabel Looncomponenten leeg gemaakt, 11 rijen verwijderd
+2025-04-24 13:25:38 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:25:38 - INFO - Tabel Looncomponenten gevuld met 11 rijen
+2025-04-24 13:25:38 - ERROR - Looncomponenten ophalen voor 550273000003394222 Emos George is niet actief
+2025-04-24 13:25:38 - INFO - Looncomponenten ophalen voor <built-in function id> Peter Klein
+2025-04-24 13:25:38 - INFO - ====== WebDriver manager ======
+2025-04-24 13:25:39 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:25:39 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:25:39 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:25:57 - INFO - Kolommen type conversie
+2025-04-24 13:25:58 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 9.
+2025-04-24 13:25:58 - INFO - Tabel Looncomponenten leeg gemaakt, 9 rijen verwijderd
+2025-04-24 13:25:58 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:25:58 - INFO - Tabel Looncomponenten gevuld met 9 rijen
+2025-04-24 13:25:58 - ERROR - Looncomponenten ophalen voor 550273000003394403 Ali Al-Zuhairi is niet actief
+2025-04-24 13:25:58 - ERROR - Looncomponenten ophalen voor 550273000003395983 Daan Kraefft is niet actief
+2025-04-24 13:25:58 - ERROR - Looncomponenten ophalen voor 550273000003417316 Govert Blom is niet actief
+2025-04-24 13:25:58 - ERROR - Looncomponenten ophalen voor 550273000003419619 Hannah Koopman is niet actief
+2025-04-24 13:25:58 - INFO - Looncomponenten ophalen voor <built-in function id> Paul Dignum
+2025-04-24 13:25:58 - INFO - ====== WebDriver manager ======
+2025-04-24 13:25:58 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:25:58 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:25:59 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:26:16 - INFO - Kolommen type conversie
+2025-04-24 13:26:16 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 16.
+2025-04-24 13:26:16 - INFO - Tabel Looncomponenten leeg gemaakt, 16 rijen verwijderd
+2025-04-24 13:26:16 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:26:16 - INFO - Tabel Looncomponenten gevuld met 16 rijen
+2025-04-24 13:26:16 - ERROR - Looncomponenten ophalen voor 550273000003420672 Marek Balon is niet actief
+2025-04-24 13:26:16 - INFO - Looncomponenten ophalen voor <built-in function id> Wesley Luiting
+2025-04-24 13:26:16 - INFO - ====== WebDriver manager ======
+2025-04-24 13:26:17 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:26:17 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:26:17 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:26:34 - INFO - Kolommen type conversie
+2025-04-24 13:26:35 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 15.
+2025-04-24 13:26:35 - INFO - Tabel Looncomponenten leeg gemaakt, 15 rijen verwijderd
+2025-04-24 13:26:35 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:26:35 - INFO - Tabel Looncomponenten gevuld met 14 rijen
+2025-04-24 13:26:35 - ERROR - Looncomponenten ophalen voor 550273000003421430 Jeroen Kruijff is niet actief
+2025-04-24 13:26:35 - ERROR - Looncomponenten ophalen voor 550273000003425937 Mark Hartog is niet actief
+2025-04-24 13:26:35 - ERROR - Looncomponenten ophalen voor 550273000003425943 Ally Rikahoma is niet actief
+2025-04-24 13:26:35 - ERROR - Looncomponenten ophalen voor 550273000003429356 Luuk de Goede is niet actief
+2025-04-24 13:26:35 - ERROR - Looncomponenten ophalen voor 550273000003431203 Stephan Severens is niet actief
+2025-04-24 13:26:35 - INFO - Looncomponenten ophalen voor <built-in function id> Ali Al-Zuhairi
+2025-04-24 13:26:35 - INFO - ====== WebDriver manager ======
+2025-04-24 13:26:35 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:26:35 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:26:35 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:26:53 - INFO - Kolommen type conversie
+2025-04-24 13:26:53 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 15.
+2025-04-24 13:26:53 - INFO - Tabel Looncomponenten leeg gemaakt, 15 rijen verwijderd
+2025-04-24 13:26:53 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:26:53 - INFO - Tabel Looncomponenten gevuld met 17 rijen
+2025-04-24 13:26:53 - ERROR - Looncomponenten ophalen voor 550273000003439881 Coen Lammers is niet actief
+2025-04-24 13:26:53 - INFO - Looncomponenten ophalen voor <built-in function id> Etem Yüksel
+2025-04-24 13:26:53 - INFO - ====== WebDriver manager ======
+2025-04-24 13:26:54 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:26:54 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:26:54 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:27:11 - INFO - Kolommen type conversie
+2025-04-24 13:27:11 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 15.
+2025-04-24 13:27:11 - INFO - Tabel Looncomponenten leeg gemaakt, 15 rijen verwijderd
+2025-04-24 13:27:12 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:27:12 - INFO - Tabel Looncomponenten gevuld met 16 rijen
+2025-04-24 13:27:12 - INFO - Looncomponenten ophalen voor <built-in function id> Bram Struik
+2025-04-24 13:27:12 - INFO - ====== WebDriver manager ======
+2025-04-24 13:27:12 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:27:12 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:27:12 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:27:29 - INFO - Kolommen type conversie
+2025-04-24 13:27:29 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 18.
+2025-04-24 13:27:29 - INFO - Tabel Looncomponenten leeg gemaakt, 18 rijen verwijderd
+2025-04-24 13:27:29 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:27:29 - INFO - Tabel Looncomponenten gevuld met 19 rijen
+2025-04-24 13:27:29 - INFO - Looncomponenten ophalen voor <built-in function id> Dinesh Balgobiend
+2025-04-24 13:27:29 - INFO - ====== WebDriver manager ======
+2025-04-24 13:27:30 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:27:30 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:27:30 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:27:47 - INFO - Kolommen type conversie
+2025-04-24 13:27:48 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 17.
+2025-04-24 13:27:48 - INFO - Tabel Looncomponenten leeg gemaakt, 17 rijen verwijderd
+2025-04-24 13:27:48 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:27:48 - INFO - Tabel Looncomponenten gevuld met 18 rijen
+2025-04-24 13:27:48 - INFO - Looncomponenten ophalen voor <built-in function id> Emos George
+2025-04-24 13:27:48 - INFO - ====== WebDriver manager ======
+2025-04-24 13:27:49 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:27:49 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:27:49 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:28:06 - INFO - Kolommen type conversie
+2025-04-24 13:28:06 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 17.
+2025-04-24 13:28:06 - INFO - Tabel Looncomponenten leeg gemaakt, 17 rijen verwijderd
+2025-04-24 13:28:06 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:28:06 - INFO - Tabel Looncomponenten gevuld met 18 rijen
+2025-04-24 13:28:06 - ERROR - Looncomponenten ophalen voor 550273000003440583 Ole Hoekveld is niet actief
+2025-04-24 13:28:06 - INFO - Looncomponenten ophalen voor <built-in function id> Dmitry Sallomons
+2025-04-24 13:28:06 - INFO - ====== WebDriver manager ======
+2025-04-24 13:28:07 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:28:07 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:28:07 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:28:25 - INFO - Kolommen type conversie
+2025-04-24 13:28:25 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 17.
+2025-04-24 13:28:25 - INFO - Tabel Looncomponenten leeg gemaakt, 17 rijen verwijderd
+2025-04-24 13:28:26 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:28:26 - INFO - Tabel Looncomponenten gevuld met 18 rijen
+2025-04-24 13:28:26 - ERROR - Looncomponenten ophalen voor 550273000003461522 Robin Wessendorp is niet actief
+2025-04-24 13:28:26 - INFO - Looncomponenten ophalen voor <built-in function id> Ferdinand Hartog
+2025-04-24 13:28:26 - INFO - ====== WebDriver manager ======
+2025-04-24 13:28:26 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:28:26 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:28:26 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:28:44 - INFO - Kolommen type conversie
+2025-04-24 13:28:45 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 15.
+2025-04-24 13:28:45 - INFO - Tabel Looncomponenten leeg gemaakt, 15 rijen verwijderd
+2025-04-24 13:28:45 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:28:45 - INFO - Tabel Looncomponenten gevuld met 18 rijen
+2025-04-24 13:28:45 - INFO - Looncomponenten ophalen voor <built-in function id> Christiaan Lisman
+2025-04-24 13:28:45 - INFO - ====== WebDriver manager ======
+2025-04-24 13:28:45 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:28:45 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:28:45 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:29:03 - INFO - Kolommen type conversie
+2025-04-24 13:29:03 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 16.
+2025-04-24 13:29:03 - INFO - Tabel Looncomponenten leeg gemaakt, 16 rijen verwijderd
+2025-04-24 13:29:03 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:29:03 - INFO - Tabel Looncomponenten gevuld met 17 rijen
+2025-04-24 13:29:03 - INFO - Looncomponenten ophalen voor <built-in function id> Robin Wessendorp
+2025-04-24 13:29:03 - INFO - ====== WebDriver manager ======
+2025-04-24 13:29:04 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:29:04 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:29:04 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:29:21 - INFO - Kolommen type conversie
+2025-04-24 13:29:22 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 14.
+2025-04-24 13:29:22 - INFO - Tabel Looncomponenten leeg gemaakt, 14 rijen verwijderd
+2025-04-24 13:29:22 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:29:22 - INFO - Tabel Looncomponenten gevuld met 14 rijen
+2025-04-24 13:29:22 - INFO - Looncomponenten ophalen voor <built-in function id> Koen Brantenaar
+2025-04-24 13:29:22 - INFO - ====== WebDriver manager ======
+2025-04-24 13:29:22 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:29:22 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:29:22 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:29:39 - INFO - Kolommen type conversie
+2025-04-24 13:29:40 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 14.
+2025-04-24 13:29:40 - INFO - Tabel Looncomponenten leeg gemaakt, 14 rijen verwijderd
+2025-04-24 13:29:40 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:29:40 - INFO - Tabel Looncomponenten gevuld met 15 rijen
+2025-04-24 13:29:40 - INFO - Looncomponenten ophalen voor <built-in function id> Eric Dijkhuis
+2025-04-24 13:29:40 - INFO - ====== WebDriver manager ======
+2025-04-24 13:29:40 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:29:40 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:29:40 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:29:59 - INFO - Kolommen type conversie
+2025-04-24 13:29:59 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 12.
+2025-04-24 13:29:59 - INFO - Tabel Looncomponenten leeg gemaakt, 12 rijen verwijderd
+2025-04-24 13:29:59 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:29:59 - INFO - Tabel Looncomponenten gevuld met 12 rijen
+2025-04-24 13:29:59 - INFO - Looncomponenten ophalen voor <built-in function id> Youssef el Aouati
+2025-04-24 13:29:59 - INFO - ====== WebDriver manager ======
+2025-04-24 13:30:00 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:30:00 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:30:00 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:30:08 - INFO - Kolommen type conversie
+2025-04-24 13:30:08 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 12.
+2025-04-24 13:30:08 - INFO - Tabel Looncomponenten leeg gemaakt, 12 rijen verwijderd
+2025-04-24 13:30:08 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:30:08 - INFO - Tabel Looncomponenten gevuld met 12 rijen
+2025-04-24 13:30:08 - INFO - Looncomponenten ophalen voor <built-in function id> Can Özçelik
+2025-04-24 13:30:08 - INFO - ====== WebDriver manager ======
+2025-04-24 13:30:09 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:30:09 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:30:09 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:30:17 - INFO - Kolommen type conversie
+2025-04-24 13:30:18 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 14.
+2025-04-24 13:30:18 - INFO - Tabel Looncomponenten leeg gemaakt, 14 rijen verwijderd
+2025-04-24 13:30:18 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:30:18 - INFO - Tabel Looncomponenten gevuld met 15 rijen
+2025-04-24 13:30:18 - INFO - Looncomponenten ophalen voor <built-in function id> Tim Duivenvoorden
+2025-04-24 13:30:18 - INFO - ====== WebDriver manager ======
+2025-04-24 13:30:18 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:30:18 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:30:19 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:30:26 - INFO - Kolommen type conversie
+2025-04-24 13:30:26 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 13.
+2025-04-24 13:30:26 - INFO - Tabel Looncomponenten leeg gemaakt, 13 rijen verwijderd
+2025-04-24 13:30:26 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:30:26 - INFO - Tabel Looncomponenten gevuld met 13 rijen
+2025-04-24 13:30:26 - ERROR - Looncomponenten ophalen voor 550273000003487047 Patrick Schilder is niet actief
+2025-04-24 13:30:26 - INFO - Looncomponenten ophalen voor <built-in function id> Govert Blom
+2025-04-24 13:30:26 - INFO - ====== WebDriver manager ======
+2025-04-24 13:30:27 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:30:27 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:30:27 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:30:34 - INFO - Kolommen type conversie
+2025-04-24 13:30:34 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 14.
+2025-04-24 13:30:34 - INFO - Tabel Looncomponenten leeg gemaakt, 14 rijen verwijderd
+2025-04-24 13:30:35 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:30:35 - INFO - Tabel Looncomponenten gevuld met 15 rijen
+2025-04-24 13:30:35 - INFO - Looncomponenten ophalen voor <built-in function id> Hannah Koopman
+2025-04-24 13:30:35 - INFO - ====== WebDriver manager ======
+2025-04-24 13:30:35 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:30:35 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:30:35 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:30:42 - INFO - Kolommen type conversie
+2025-04-24 13:30:42 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 13.
+2025-04-24 13:30:42 - INFO - Tabel Looncomponenten leeg gemaakt, 13 rijen verwijderd
+2025-04-24 13:30:43 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:30:43 - INFO - Tabel Looncomponenten gevuld met 12 rijen
+2025-04-24 13:30:43 - ERROR - Looncomponenten ophalen voor 550273000003487090 Mario Wolters is niet actief
+2025-04-24 13:30:43 - ERROR - Looncomponenten ophalen voor 550273000003487104 Luuk de Goede is niet actief
+2025-04-24 13:30:43 - INFO - Looncomponenten ophalen voor <built-in function id> Daan Kraefft
+2025-04-24 13:30:43 - INFO - ====== WebDriver manager ======
+2025-04-24 13:30:43 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:30:43 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:30:43 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:30:51 - INFO - Kolommen type conversie
+2025-04-24 13:30:51 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 15.
+2025-04-24 13:30:51 - INFO - Tabel Looncomponenten leeg gemaakt, 15 rijen verwijderd
+2025-04-24 13:30:52 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:30:52 - INFO - Tabel Looncomponenten gevuld met 15 rijen
+2025-04-24 13:30:52 - INFO - Looncomponenten ophalen voor <built-in function id> Reinier Blok
+2025-04-24 13:30:52 - INFO - ====== WebDriver manager ======
+2025-04-24 13:30:52 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:30:52 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:30:52 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:30:59 - INFO - Kolommen type conversie
+2025-04-24 13:31:00 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 13.
+2025-04-24 13:31:00 - INFO - Tabel Looncomponenten leeg gemaakt, 13 rijen verwijderd
+2025-04-24 13:31:00 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:31:00 - INFO - Tabel Looncomponenten gevuld met 13 rijen
+2025-04-24 13:31:00 - INFO - Looncomponenten ophalen voor <built-in function id> Marek Balon
+2025-04-24 13:31:00 - INFO - ====== WebDriver manager ======
+2025-04-24 13:31:01 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:31:01 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:31:01 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:31:08 - INFO - Kolommen type conversie
+2025-04-24 13:31:09 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 9.
+2025-04-24 13:31:09 - INFO - Tabel Looncomponenten leeg gemaakt, 9 rijen verwijderd
+2025-04-24 13:31:09 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:31:09 - INFO - Tabel Looncomponenten gevuld met 9 rijen
+2025-04-24 13:31:09 - ERROR - Looncomponenten ophalen voor 550273000003487747 Peer van de Wijdeven is niet actief
+2025-04-24 13:31:09 - INFO - Looncomponenten ophalen voor <built-in function id> Gideon Djobo
+2025-04-24 13:31:09 - INFO - ====== WebDriver manager ======
+2025-04-24 13:31:10 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:31:10 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:31:10 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:31:17 - INFO - Kolommen type conversie
+2025-04-24 13:31:17 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 13.
+2025-04-24 13:31:17 - INFO - Tabel Looncomponenten leeg gemaakt, 13 rijen verwijderd
+2025-04-24 13:31:18 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:31:18 - INFO - Tabel Looncomponenten gevuld met 13 rijen
+2025-04-24 13:31:18 - INFO - Looncomponenten ophalen voor <built-in function id> Matthijs  van Polen
+2025-04-24 13:31:18 - INFO - ====== WebDriver manager ======
+2025-04-24 13:31:18 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:31:18 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:31:18 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:31:25 - INFO - Kolommen type conversie
+2025-04-24 13:31:25 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 15.
+2025-04-24 13:31:25 - INFO - Tabel Looncomponenten leeg gemaakt, 15 rijen verwijderd
+2025-04-24 13:31:26 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:31:26 - INFO - Tabel Looncomponenten gevuld met 15 rijen
+2025-04-24 13:31:26 - INFO - Looncomponenten ophalen voor <built-in function id> Luuk de Goede
+2025-04-24 13:31:26 - INFO - ====== WebDriver manager ======
+2025-04-24 13:31:26 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:31:26 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:31:27 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:31:34 - INFO - Kolommen type conversie
+2025-04-24 13:31:34 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 12.
+2025-04-24 13:31:34 - INFO - Tabel Looncomponenten leeg gemaakt, 12 rijen verwijderd
+2025-04-24 13:31:35 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:31:35 - INFO - Tabel Looncomponenten gevuld met 12 rijen
+2025-04-24 13:31:35 - INFO - Looncomponenten ophalen voor <built-in function id> Hendrik Hankel
+2025-04-24 13:31:35 - INFO - ====== WebDriver manager ======
+2025-04-24 13:31:35 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:31:35 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:31:35 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:31:42 - INFO - Kolommen type conversie
+2025-04-24 13:31:43 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 10.
+2025-04-24 13:31:43 - INFO - Tabel Looncomponenten leeg gemaakt, 10 rijen verwijderd
+2025-04-24 13:31:43 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:31:43 - INFO - Tabel Looncomponenten gevuld met 14 rijen
+2025-04-24 13:31:43 - INFO - Looncomponenten ophalen voor <built-in function id> Jaap Budding
+2025-04-24 13:31:43 - INFO - ====== WebDriver manager ======
+2025-04-24 13:31:44 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:31:44 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:31:44 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:31:51 - INFO - Kolommen type conversie
+2025-04-24 13:31:52 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 12.
+2025-04-24 13:31:52 - INFO - Tabel Looncomponenten leeg gemaakt, 12 rijen verwijderd
+2025-04-24 13:31:52 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:31:52 - INFO - Tabel Looncomponenten gevuld met 12 rijen
+2025-04-24 13:31:52 - INFO - Looncomponenten ophalen voor <built-in function id> Mario Wolters
+2025-04-24 13:31:52 - INFO - ====== WebDriver manager ======
+2025-04-24 13:31:52 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:31:53 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:31:53 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:32:00 - INFO - Kolommen type conversie
+2025-04-24 13:32:00 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 12.
+2025-04-24 13:32:01 - INFO - Tabel Looncomponenten leeg gemaakt, 12 rijen verwijderd
+2025-04-24 13:32:01 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:32:01 - INFO - Tabel Looncomponenten gevuld met 13 rijen
+2025-04-24 13:32:01 - INFO - Looncomponenten ophalen voor <built-in function id> Aaron Magadia
+2025-04-24 13:32:01 - INFO - ====== WebDriver manager ======
+2025-04-24 13:32:01 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:32:02 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:32:02 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:32:09 - INFO - Kolommen type conversie
+2025-04-24 13:32:10 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 9.
+2025-04-24 13:32:10 - INFO - Tabel Looncomponenten leeg gemaakt, 9 rijen verwijderd
+2025-04-24 13:32:10 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:32:10 - INFO - Tabel Looncomponenten gevuld met 9 rijen
+2025-04-24 13:32:10 - INFO - Looncomponenten ophalen voor <built-in function id> Ally Rikahoma
+2025-04-24 13:32:10 - INFO - ====== WebDriver manager ======
+2025-04-24 13:32:11 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:32:11 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:32:11 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:32:18 - INFO - Kolommen type conversie
+2025-04-24 13:32:19 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 3.
+2025-04-24 13:32:19 - INFO - Tabel Looncomponenten leeg gemaakt, 3 rijen verwijderd
+2025-04-24 13:32:19 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:32:19 - INFO - Tabel Looncomponenten gevuld met 3 rijen
+2025-04-24 13:32:19 - INFO - Looncomponenten ophalen voor <built-in function id> Patrick Bonthuis
+2025-04-24 13:32:19 - INFO - ====== WebDriver manager ======
+2025-04-24 13:32:19 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:32:19 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:32:20 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:32:27 - INFO - Kolommen type conversie
+2025-04-24 13:32:27 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 16.
+2025-04-24 13:32:27 - INFO - Tabel Looncomponenten leeg gemaakt, 16 rijen verwijderd
+2025-04-24 13:32:28 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:32:28 - INFO - Tabel Looncomponenten gevuld met 17 rijen
+2025-04-24 13:32:28 - INFO - Looncomponenten ophalen voor <built-in function id> Bram Welmers
+2025-04-24 13:32:28 - INFO - ====== WebDriver manager ======
+2025-04-24 13:32:28 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:32:28 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:32:28 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:32:36 - INFO - Kolommen type conversie
+2025-04-24 13:32:36 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 14.
+2025-04-24 13:32:36 - INFO - Tabel Looncomponenten leeg gemaakt, 14 rijen verwijderd
+2025-04-24 13:32:37 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:32:37 - INFO - Tabel Looncomponenten gevuld met 14 rijen
+2025-04-24 13:32:37 - INFO - Looncomponenten ophalen voor <built-in function id> Radjinder Dwarka
+2025-04-24 13:32:37 - INFO - ====== WebDriver manager ======
+2025-04-24 13:32:37 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:32:37 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:32:37 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:32:44 - INFO - Kolommen type conversie
+2025-04-24 13:32:45 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 14.
+2025-04-24 13:32:45 - INFO - Tabel Looncomponenten leeg gemaakt, 14 rijen verwijderd
+2025-04-24 13:32:45 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:32:45 - INFO - Tabel Looncomponenten gevuld met 14 rijen
+2025-04-24 13:32:45 - INFO - Looncomponenten ophalen voor <built-in function id> Jawad Rezaei
+2025-04-24 13:32:45 - INFO - ====== WebDriver manager ======
+2025-04-24 13:32:46 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:32:46 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 13:32:46 - INFO - Driver [/Users/maxrood/.wdm/drivers/chromedriver/mac64/135.0.7049.114/chromedriver-mac-x64/chromedriver] found in cache
+2025-04-24 13:32:52 - INFO - Kolommen type conversie
+2025-04-24 13:32:52 - INFO - Leeggooien succesvol uitgevoerd voor tabel Looncomponenten. Aantal verwijderde rijen: 9.
+2025-04-24 13:32:52 - INFO - Tabel Looncomponenten leeg gemaakt, 9 rijen verwijderd
+2025-04-24 13:32:53 - INFO - DataFrame succesvol toegevoegd/bijgewerkt in de tabel: Looncomponenten
+2025-04-24 13:32:53 - INFO - Tabel Looncomponenten gevuld met 9 rijen
+2025-04-24 13:32:53 - INFO - Script ended in 0:08:32
