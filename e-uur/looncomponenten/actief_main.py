@@ -15,7 +15,7 @@ def main():
     
     # Script configuratie
     klant = "Stiek"
-    script = "Looncomponenten Actief"
+    script = "Loon Actief"
     bron = 'E-Uur'
     start_time = time.time()
 
@@ -50,7 +50,7 @@ def main():
                 plaatsing_df = fetch_plaatsing_data_from_table(klant_connection_string, "Plaatsing")
 
                 # Ophalen huidige looncomponenten data
-                looncomponenten_df = fetch_looncomponenten_data_from_table(klant_connection_string, "Looncomponenten")
+                looncomponenten_df = fetch_looncomponenten_data_from_table(klant_connection_string, "Loon")
 
                 # Houd alleen IDs over die niet in looncomponenten data zit
                 df = plaatsing_df[~plaatsing_df['ID'].isin(looncomponenten_df['ID'])]
@@ -68,7 +68,7 @@ def main():
                         empty_and_fill_table(converted_df, "Looncomponenten", id, klant_connection_string)
 
                     else:
-                        logging.error(f"Looncomponenten ophalen voor {id} {werknemer} is niet actief")
+                        logging.error(f"Loon ophalen voor {id} {werknemer} is niet actief")
                         
     except Exception as e:
         logging.error(f"Script mislukt: {e}")

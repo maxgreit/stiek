@@ -103,7 +103,7 @@ def fetch_plaatsing_data_from_table(connection_string, table_name):
         cursor = conn.cursor()
 
         # Query om alle data op te halen uit de opgegeven tabel
-        query = f"SELECT * FROM {table_name}"
+        query = f"SELECT ID, Werknemer, Actief FROM {table_name}"
         cursor.execute(query)
 
         # Resultaten ophalen
@@ -118,8 +118,8 @@ def fetch_plaatsing_data_from_table(connection_string, table_name):
         plaatsing_dict = {}
         for row in rows:
             ID = row[0]  
-            werknemer = row[6]      
-            actief = row[5]
+            werknemer = row[1]      
+            actief = row[2]
             
             # Je kunt de waardes toevoegen aan het dictionary
             plaatsing_dict[ID] = {

@@ -1,6 +1,6 @@
 from looncomponenten_modules.database import empty_and_fill_table, fetch_looncomponenten_data_from_table, fetch_plaatsing_data_from_table
 from looncomponenten_modules.config import determine_script_id, create_connection_dict
-from looncomponenten_modules.actief_selenium import looncomponenten_ophalen
+from looncomponenten_modules.inactief_selenium import looncomponenten_ophalen
 from looncomponenten_modules.type_mapping import apply_conversion
 from looncomponenten_modules.log import end_log, setup_logging
 from looncomponenten_modules.env_tool import env_check
@@ -15,7 +15,7 @@ def main():
     
     # Script configuratie
     klant = "Stiek"
-    script = "Looncomponenten Actief"
+    script = "Loon"
     bron = 'E-Uur'
     start_time = time.time()
 
@@ -47,10 +47,10 @@ def main():
                 bron = 'E-Uur'
 
                 # Ophalen plaatsing data
-                plaatsing_df = fetch_plaatsing_data_from_table(klant_connection_string, "Plaatsing")
+                plaatsing_df = fetch_plaatsing_data_from_table(klant_connection_string, "Plaatsingen")
 
                 for id, werknemer, actief in zip(plaatsing_df['ID'], plaatsing_df['Werknemer'], plaatsing_df['Actief']):
-                    if actief == True:
+                    if actief == False:
                         # Looncomponenten ophalen
                         looncomponent_df = looncomponenten_ophalen(euururl, euurusername, euurpassword, id, werknemer)
 
@@ -58,7 +58,7 @@ def main():
                         converted_df = apply_conversion(looncomponent_df)
                         
                         # Data overdracht
-                        empty_and_fill_table(converted_df, "Looncomponenten", id, klant_connection_string)
+                        empty_and_fill_table(converted_df, "Loon", id, klant_connection_string)
                         
                     else:
                         logging.error(f"Looncomponenten ophalen voor {id} {werknemer} is niet actief")

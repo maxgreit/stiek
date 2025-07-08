@@ -36,6 +36,36 @@ def apply_mapping(df, tabelnaam):
                 transformed_df = transform_columns(df, mapping)
                 logging.info(f"Kolommen getransformeerd")
                 
+                # Beperk tot gewenste kolommen
+                gewenste_kolommen = [
+                    "ID",
+                    "Functie",
+                    "Startdatum",
+                    "Einddatum",
+                    "Datum_aangemaakt",
+                    "Actief",
+                    "Werknemer",
+                    "Inlener",
+                    "Contracttype",
+                    "Sector",
+                    "Bemiddelaar",
+                    "Gemiddelde_werkweek",
+                    "Callcenter",
+                    "Branche",
+                    "Accountmanager",
+                    "Recruiter",
+                    "Bron"
+                ]
+                transformed_df = select_columns(transformed_df, gewenste_kolommen)
+                
                 return transformed_df
             except Exception as e:
                 logging.error(f"Kolommen transformeren mislukt: {e}")
+
+def select_columns(df, kolomnamen):
+    """
+    Beperk de DataFrame tot de opgegeven kolommen.
+    Kolommen die niet bestaan worden genegeerd.
+    """
+    bestaande_kolommen = [kolom for kolom in kolomnamen if kolom in df.columns]
+    return df[bestaande_kolommen]
