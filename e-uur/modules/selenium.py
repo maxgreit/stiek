@@ -10,6 +10,7 @@ from dateutil.relativedelta import relativedelta
 from datetime import datetime, timedelta
 import logging
 import time
+import pandas as pd
 
 class SeleniumManager:
     """
@@ -897,3 +898,120 @@ class EuurUrenRapportageDownloader:
             return False
         finally:
             self.selenium_manager.close_session()
+
+
+class EuurLoonPerPlaatsingDownloader:
+    """
+    Class voor het ophalen van looncomponenten per plaatsing (actief én inactief) uit E-Uur.
+    """
+    def __init__(self, headless=True):
+        self.headless = headless
+
+    def _login_and_navigate(self, selenium_manager, euururl, euurusername, euurpassword):
+        if not selenium_manager.start_session():
+            return False
+        if not selenium_manager.navigate_to(euururl):
+            return False
+        if not selenium_manager.login(euurusername, euurpassword):
+            return False
+        return True
+
+    def _navigate_to_plaatsingen(self, selenium_manager):
+        # Navigeer naar start menu
+        if not selenium_manager.navigate_to_start_menu():
+            return False
+        # Klik op Plaatsingen
+        plaatsingen = selenium_manager._wait_for_clickable(
+            By.XPATH, "//div[@class='awjat-sub-m-item' and text()='Plaatsingen']"
+        )
+        if not selenium_manager._safe_click(plaatsingen, "Plaatsingen"):
+            return False
+        # Klik op Overzicht (actief) - altijd naar Overzicht, want daar staan alle plaatsingen
+        overzicht = selenium_manager._wait_for_clickable(
+            By.XPATH, "//div[@class='awjat-m-item' and text()='Overzicht']"
+        )
+        if not selenium_manager._safe_click(overzicht, "Overzicht"):
+            return False
+        return True
+
+    def _zoek_en_klik_op_plaatsing(self, selenium_manager, plaatsing_id):
+        max_attempts = 10
+        attempts = 0
+        while attempts < max_attempts:
+            try:
+                rij = WebDriverWait(selenium_manager.driver, 10).until(
+                    EC.presence_of_element_located((By.XPATH, f"//tr[@module='confirmedassignmentmerger' and @objectid='{plaatsing_id}']"))
+                )
+                rij.click()
+                return True
+            except Exception:
+                try:
+                    next_button = selenium_manager.driver.find_element(By.CSS_SELECTOR, "i.pager.fa-angle-right")
+                    next_button.click()
+                    time.sleep(1)
+                except Exception:
+                    break
+                attempts += 1
+        return False
+
+    def _lees_looncomponenten_tabel(self, selenium_manager, plaatsing_id, werknemer):
+        try:
+            WebDriverWait(selenium_manager.driver, 10).until(
+                EC.presence_of_element_located((By.XPATH, "//tr[@tablename='AssignmentcomponentTable']"))
+            )
+        except Exception:
+            return pd.DataFrame()
+        looncomponenten_data = []
+        try:
+            table_rows = selenium_manager.driver.find_elements(By.XPATH, "//tr[@tablename='AssignmentcomponentTable']")
+            for rij in table_rows:
+                try:
+                    cells = rij.find_elements(By.TAG_NAME, "td")
+                    if len(cells) > 1:
+                        looncomponent = cells[0].find_element(By.CLASS_NAME, "value").text
+                        loon = cells[6].find_element(By.CLASS_NAME, "value").text
+                        looncomponenten_data.append({
+                            'ID': plaatsing_id,
+                            'Looncomponent': looncomponent,
+                            'Loon': loon,
+                            'Werknemer': werknemer
+                        })
+                except Exception:
+                    continue
+        except Exception:
+            pass
+        return pd.DataFrame(looncomponenten_data)
+
+    def download_loon_per_plaatsing(self, euururl, euurusername, euurpassword, plaatsingen_lijst):
+        """
+        Haal looncomponenten op voor alle plaatsingen in de lijst.
+        Args:
+            euururl: E-Uur URL
+            euurusername: Gebruikersnaam
+            euurpassword: Wachtwoord
+            plaatsingen_lijst: lijst van dicts met minimaal 'ID' en 'Werknemer'
+        Returns:
+            DataFrame met alle looncomponenten
+        """
+        alle_data = []
+        for plaatsing in plaatsingen_lijst:
+            plaatsing_id = plaatsing['ID']
+            werknemer = plaatsing.get('Werknemer', '')
+            selenium_manager = SeleniumManager({'headless': self.headless, 'timeout': 10})
+            try:
+                if not self._login_and_navigate(selenium_manager, euururl, euurusername, euurpassword):
+                    continue
+                if not self._navigate_to_plaatsingen(selenium_manager):
+                    continue
+                if not self._zoek_en_klik_op_plaatsing(selenium_manager, plaatsing_id):
+                    logging.warning(f"Plaatsing {plaatsing_id} niet gevonden")
+                    continue
+                df = self._lees_looncomponenten_tabel(selenium_manager, plaatsing_id, werknemer)
+                if not df.empty:
+                    alle_data.append(df)
+                    logging.info(f"Data van plaatsing {plaatsing_id} succesvol toegevoegd aan de dataframe.")
+            finally:
+                selenium_manager.close_session()
+        if alle_data:
+            return pd.concat(alle_data, ignore_index=True)
+        return pd.DataFrame()

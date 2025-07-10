@@ -1,5 +1,6 @@
 import pandas as pd
 import logging
+from datetime import datetime
 
 class TypeMapper:
     """
@@ -115,6 +116,17 @@ class TypeMapper:
                 "Bron": "int",
                 "Callcenter": "bit",
                 "Branche": "int",
+            },
+            'Contract_fases': {
+                "ID": "bigint",
+                "Werknemer": "nvarchar",
+                "Contracttype": "nvarchar",
+            },
+            'Loon': {
+                "ID": "bigint",
+                "Looncomponent": "nvarchar",
+                "Loon": "decimal",
+                "Werknemer": "nvarchar",
             }
         }
     
@@ -249,29 +261,43 @@ class TypeMapper:
         
         return converted.astype('int64')
     
+    def add_datetime_column(self, df):
+        """
+        Voeg een kolom 'Datumtijd' toe met de huidige datum en tijd.
+        """
+        current_datetime = datetime.now()
+        df['Datumtijd'] = current_datetime.strftime('%Y-%m-%d %H:%M:%S')
+        return df
+
     def apply_conversion(self, df, table_name):
         """
         Pas type conversie toe op een DataFrame voor een specifieke tabel.
-        
+        Beperk het DataFrame tot alleen de kolommen die in de type mapping staan.
+        Voeg voor Contract_fases een kolom 'Datumtijd' toe.
         Args:
             df: Het DataFrame om te converteren
             table_name: De naam van de tabel (bepaalt welke type mapping wordt gebruikt)
-            
         Returns:
             Het geconverteerde DataFrame, of None bij fout
         """
         # Haal de juiste type mapping op
         column_types = self.get_type_mapping(table_name)
-        
         if column_types is None:
             logging.error(f"Geen type mapping gevonden voor tabel: {table_name}")
             logging.info(f"Beschikbare tabellen: {self.get_available_tables()}")
             return None
-        
+        # Beperk het DataFrame tot alleen de kolommen uit de mapping
+        missing_cols = [col for col in column_types.keys() if col not in df.columns]
+        if missing_cols:
+            logging.warning(f"Ontbrekende kolommen in DataFrame voor tabel {table_name}: {missing_cols}")
+        df = df[[col for col in column_types.keys() if col in df.columns]]
         # Voer type conversie uit
         try:
             df = self.convert_column_types(df, column_types)
             logging.info(f"Type conversie succesvol toegepast voor tabel: {table_name}")
+            # Voeg Datumtijd toe voor Contract_fases
+            if table_name == 'Contract_fases':
+                df = self.add_datetime_column(df)
             return df
         except Exception as e:
             logging.error(f"Type conversie mislukt voor tabel '{table_name}': {e}")

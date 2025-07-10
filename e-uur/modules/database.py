@@ -226,3 +226,96 @@ class DatabaseManager:
                 return False
         
         return self.fill_table(df, table, batch_size)
+
+    def fetch_plaatsing_data(self, table_name="Plaatsingen"):
+        """
+        Haal alle plaatsingen op uit de opgegeven tabel.
+        Args:
+            table_name (str): Naam van de tabel (default: 'Plaatsingen')
+        Returns:
+            pd.DataFrame: DataFrame met kolommen ['ID', 'Werknemer', 'Actief']
+        """
+        try:
+            conn = self.connect_to_database()
+            if not conn:
+                self.logger.error("Geen databaseverbinding voor ophalen plaatsingen.")
+                return pd.DataFrame()
+            cursor = conn.cursor()
+            query = f"SELECT ID, Werknemer, Actief FROM {table_name} WHERE Actief = 1"
+            cursor.execute(query)
+            rows = cursor.fetchall()
+            if not rows:
+                self.logger.warning(f"Geen plaatsingen gevonden in tabel {table_name}.")
+                cursor.close()
+                conn.close()
+                return pd.DataFrame(columns=["ID", "Werknemer", "Actief"])
+            plaatsing_dict = {}
+            for row in rows:
+                ID = row[0]
+                werknemer = row[1]
+                actief = row[2]
+                plaatsing_dict[ID] = {
+                    'Werknemer': werknemer,
+                    'Actief': actief
+                }
+            cursor.close()
+            conn.close()
+        except Exception as e:
+            self.logger.error(f"Fout bij het ophalen van data uit de tabel {table_name}: {e}")
+            return pd.DataFrame()
+        try:
+            self.logger.info("Data omzetten naar DataFrame gestart")
+            df = pd.DataFrame.from_dict(plaatsing_dict, orient='index').reset_index()
+            df.columns = ['ID', 'Werknemer', 'Actief']
+            return df
+        except Exception as e:
+            self.logger.error(f"Data omzetten naar DataFrame mislukt: {e}")
+            return pd.DataFrame()
+
+    def fetch_contract_phase_data(self, table_name="Plaatsingen", only_active=False):
+        """
+        Haal alle contractfases op uit de opgegeven tabel.
+        Args:
+            table_name (str): Naam van de tabel (default: 'Plaatsingen')
+            only_active (bool): Indien True, alleen actieve plaatsingen ophalen
+        Returns:
+            pd.DataFrame: DataFrame met kolommen ['ID', 'Werknemer', 'Contracttype', 'Actief']
+        """
+        max_retries = self.max_retries
+        retry_delay = self.retry_delay
+        contract_dict = None
+        try:
+            conn = self.connect_to_database()
+            if not conn:
+                self.logger.error("Geen databaseverbinding voor ophalen contractfases.")
+                return pd.DataFrame()
+            cursor = conn.cursor()
+            for attempt in range(max_retries):
+                try:
+                    query = f"SELECT ID, Werknemer, Contracttype, Actief FROM {table_name}"
+                    if only_active:
+                        query += " WHERE Actief = 1"
+                    cursor.execute(query)
+                    rows = cursor.fetchall()
+                    contract_dict = {row[0]: (row[1], row[2], row[3]) for row in rows}
+                    if contract_dict:
+                        break
+                except Exception as e:
+                    self.logger.warning(f"Fout bij poging {attempt+1} contractfases ophalen: {e}")
+                    time.sleep(retry_delay)
+            cursor.close()
+            conn.close()
+        except Exception as e:
+            self.logger.error(f"Fout bij het ophalen van data uit de tabel {table_name}: {e}")
+            return pd.DataFrame()
+        if not contract_dict:
+            self.logger.error(f"Ophalen contract dictionary mislukt na meerdere pogingen")
+            return pd.DataFrame()
+        try:
+            contract_df = pd.DataFrame.from_dict(contract_dict, orient='index', columns=['Werknemer', 'Contracttype', 'Actief']).reset_index()
+            contract_df.rename(columns={'index': 'ID'}, inplace=True)
+            self.logger.info("Contractfases succesvol opgehaald en omgezet naar DataFrame")
+            return contract_df
+        except Exception as e:
+            self.logger.error(f"Data omzetten naar DataFrame mislukt: {e}")
+            return pd.DataFrame()
