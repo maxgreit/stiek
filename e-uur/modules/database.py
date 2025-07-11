@@ -241,7 +241,7 @@ class DatabaseManager:
                 self.logger.error("Geen databaseverbinding voor ophalen plaatsingen.")
                 return pd.DataFrame()
             cursor = conn.cursor()
-            query = f"SELECT ID, Werknemer, Actief FROM {table_name} WHERE Actief = 1"
+            query = f"SELECT ID, Werknemer, Actief FROM {table_name}"
             cursor.execute(query)
             rows = cursor.fetchall()
             if not rows:
@@ -319,3 +319,29 @@ class DatabaseManager:
         except Exception as e:
             self.logger.error(f"Data omzetten naar DataFrame mislukt: {e}")
             return pd.DataFrame()
+
+    def fetch_loon_ids(self, table_name="Loon", id_column="ID"):
+        """
+        Haal alle unieke ID's op uit de opgegeven Loon-tabel.
+        Args:
+            table_name (str): Naam van de tabel (default: 'Loon')
+            id_column (str): Naam van de ID kolom (default: 'ID')
+        Returns:
+            list: Lijst met unieke ID's
+        """
+        try:
+            conn = self.connect_to_database()
+            if not conn:
+                self.logger.error("Geen databaseverbinding voor ophalen loon-ID's.")
+                return []
+            cursor = conn.cursor()
+            query = f"SELECT DISTINCT [{id_column}] FROM {table_name}"
+            cursor.execute(query)
+            rows = cursor.fetchall()
+            cursor.close()
+            conn.close()
+            ids = [row[0] for row in rows if row[0] is not None]
+            return ids
+        except Exception as e:
+            self.logger.error(f"Fout bij het ophalen van loon-ID's uit {table_name}: {e}")
+            return []

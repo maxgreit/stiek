@@ -50,7 +50,7 @@ def main():
         'script_id': script_id,
         'buffer_size': 10,
         'flush_interval': 30,
-        'log_level': logging.WARNING
+        'log_level': logging.INFO
     }
     
     # Initialiseer LoggerManager
@@ -76,24 +76,33 @@ def main():
                 plaatsing_df = database_manager.fetch_plaatsing_data("Plaatsingen")
                 plaatsingen_lijst = plaatsing_df[['ID', 'Werknemer']].to_dict('records')
 
-                # Download looncomponenten voor alle plaatsingen
-                logging.info("Start download van looncomponenten uit E-Uur")
-                looncomponenten_df = loon_downloader.download_loon_per_plaatsing(
-                    euururl, euurusername, euurpassword, plaatsingen_lijst
-                )
-                
-                if looncomponenten_df is not None and not looncomponenten_df.empty:
-                    # Directe verwerking van DataFrame
-                    logging.info("Start type conversie")
-                    converted_df = type_mapper.apply_conversion(looncomponenten_df, "Loon")
-                    if converted_df is not None:
-                        logging.info("Type conversie succesvol voltooid")
-                        database_manager.clear_and_fill_table(converted_df, "Loon", batch_size=1000)
-                        logging.info("Data succesvol overgedragen naar database")
-                    else:
-                        logging.error("Type conversie mislukt")
+                # Ophalen bestaande loon-ID's
+                bestaande_loon_ids = database_manager.fetch_loon_ids("Loon", "ID")
+
+                # Filter plaatsingen waarvoor nog geen loondata is
+                nieuwe_plaatsingen = [p for p in plaatsingen_lijst if p['ID'] not in bestaande_loon_ids]
+
+                if not nieuwe_plaatsingen:
+                    logging.info("Alle plaatsingen hebben al loondata. Geen actie nodig.")
                 else:
-                    logging.error("Geen looncomponenten opgehaald voor plaatsingen.")
+                    # Download looncomponenten voor alleen de nieuwe plaatsingen
+                    logging.info("Start download van looncomponenten uit E-Uur voor nieuwe plaatsingen")
+                    looncomponenten_df = loon_downloader.download_loon_per_plaatsing(
+                        euururl, euurusername, euurpassword, nieuwe_plaatsingen
+                    )
+                    
+                    if looncomponenten_df is not None and not looncomponenten_df.empty:
+                        # Directe verwerking van DataFrame
+                        logging.info("Start type conversie")
+                        converted_df = type_mapper.apply_conversion(looncomponenten_df, "Loon")
+                        if converted_df is not None:
+                            logging.info("Type conversie succesvol voltooid")
+                            database_manager.clear_and_fill_table(converted_df, "Loon", id_column="ID", batch_size=1000)
+                            logging.info("Data succesvol overgedragen naar database")
+                        else:
+                            logging.error("Type conversie mislukt")
+                    else:
+                        logging.error("Geen looncomponenten opgehaald voor nieuwe plaatsingen.")
     except Exception as e:
         logging.error(f"Script mislukt: {e}")
         raise
